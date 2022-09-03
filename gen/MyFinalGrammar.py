@@ -137,8 +137,6 @@ class MyFinalGrammar(finalgrammarListener):
         if not self.verifica_id_funcao(id_func):
             raise Exception(id_func + " nao existe")
 
-    def enterIdParametroFunc(self, ctx:finalgrammarParser.IdParametroFuncContext):
-        pass
 
     def exitListParam(self, ctx:finalgrammarParser.ListParamContext):
        pass

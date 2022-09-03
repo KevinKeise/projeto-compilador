@@ -88,12 +88,12 @@ listParam: TIPO ID (',' TIPO ID)* ; // lista de parametros da funçao
 
 call_func: ID '('list_callf_param*')'; // define como se chama uma funçao sem ponto e virgula
 
-
+list_callf_param: list_callf (',' list_callf)*;
 // define os tipos de parametro de uma funçao Ex: func(3+2) ou func(var) etc...
-list_callf_param: ID  #IdParametroFunc
-                | call_func #CallFuncParametroFunc
-                | expression #ExpressionParametroFunc
-                ;
+list_callf: ID  #IdParametroFunc
+          | call_func #CallFuncParametroFunc
+          | expression #ExpressionParametroFunc
+          ;
 
 return_stm: 'return' (ID | BOOL | expression | call_func) ';'; // define o 'return' da funçao
 
