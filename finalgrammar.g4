@@ -16,38 +16,53 @@ list_att: att (',' att)*;
 
 // Atribuiçao
 att : ID '=' (STRING | REAL | BOOL | INT);  // ex: var = 34
-att_e : ID '=' (expression | STRING | BOOL );  // ex: var = 34+5
-att_s : ID '+=' (STRING | REAL | BOOL | INT);
-att_m : ID '*=' (STRING | REAL | BOOL | INT);
+att_e : ID '=' (expression | STRING | BOOL  );  // ex: var = 34+5
+att_s : ID '+=' (REAL | INT);
+att_m : ID '*=' (REAL | INT);
+
 //expressoes aritmeticas
 
-expression returns [int val]: expr;
+expression : expr_int | expr_real;
 
-expr returns [int val]:
-      expr '+' term #Soma
-    | expr '-' term #Subtracao
-    | term  #ExprTerm
-    ;
+expr_int: expr_int '+' term_int #IntSoma
+        | expr_int '-' term_int #IntSubtracao
+        | term_int  #IntExprTerm
+        ;
 
-term returns [int val]:
-    term '*' factor #Multi
-    | term '/' factor #Div
-    | factor #TermFactor
-    ;
+term_int: term_int '*' factor_int #IntMulti
+        | term_int '/' factor_int #IntDiv
+        | factor_int #IntTermFactor
+        ;
 
-factor returns [int val]: '(' expr ')' #ParentesesArit
-      | INT #InteiroAri
-      | ID #IdAri
+factor_int: '(' expr_int ')' #IntParentesesArit
+      | INT #IntInteiroAri
+      | ID #IntIdAri
+      | call_func #IntCallFuncAri
+      | '-' factor_int #IntMenosUnarioAri
+      ;
+
+expr_real: expr_real '+' term_real #RealSoma
+         | expr_real '-' term_real #RealSubtracao
+         | term_real  #RealExprTerm
+         ;
+
+term_real: term_real '*' factor_real #RealMulti
+         | term_real '/' factor_real #RealDiv
+         | factor_real #RealTermFactor
+         ;
+
+factor_real: '(' expr_real ')' #RealParentesesArit
       | REAL #RealAri
-      | call_func #CallFuncAri
-      | '-' factor #MenosUnarioAri
+      | ID #RealIdAri
+      | call_func #RealCallFuncAri
+      | '-' factor_real #RealMenosUnarioAri
       ;
 
 // expressoes de comparaçao
 
 teste_comp: expr_comp;
 
-expr_comp returns [int val]: expr_comp '==' term_comp #Igual
+expr_comp: expr_comp '==' term_comp #Igual
          | expr_comp '!=' term_comp #Diferente
          | term_comp #TermComp
          ;
@@ -118,7 +133,7 @@ if_stm: 'if' '(' teste_comp  ')' '{' blocks* '}' ('else' '{' blocks+ '}')?;
 
 //for
 
-for_stm: 'for' ID 'in' 'range' '(' INT ':' INT (':' INT)? ')' '{' blocks+ '}';
+for_stm: 'for' ID 'in' 'range' '(' (INT | ID) ':' (INT | ID) (':' (INT | ID))? ')' '{' blocks+ '}';
 
 //do-while
 

@@ -98,111 +98,111 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#Soma.
-    def enterSoma(self, ctx:finalgrammarParser.SomaContext):
+    # Enter a parse tree produced by finalgrammarParser#IntExprTerm.
+    def enterIntExprTerm(self, ctx:finalgrammarParser.IntExprTermContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#Soma.
-    def exitSoma(self, ctx:finalgrammarParser.SomaContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#ExprTerm.
-    def enterExprTerm(self, ctx:finalgrammarParser.ExprTermContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#ExprTerm.
-    def exitExprTerm(self, ctx:finalgrammarParser.ExprTermContext):
+    # Exit a parse tree produced by finalgrammarParser#IntExprTerm.
+    def exitIntExprTerm(self, ctx:finalgrammarParser.IntExprTermContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#Subtracao.
-    def enterSubtracao(self, ctx:finalgrammarParser.SubtracaoContext):
+    # Enter a parse tree produced by finalgrammarParser#IntSoma.
+    def enterIntSoma(self, ctx:finalgrammarParser.IntSomaContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#Subtracao.
-    def exitSubtracao(self, ctx:finalgrammarParser.SubtracaoContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#Div.
-    def enterDiv(self, ctx:finalgrammarParser.DivContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#Div.
-    def exitDiv(self, ctx:finalgrammarParser.DivContext):
+    # Exit a parse tree produced by finalgrammarParser#IntSoma.
+    def exitIntSoma(self, ctx:finalgrammarParser.IntSomaContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#TermFactor.
-    def enterTermFactor(self, ctx:finalgrammarParser.TermFactorContext):
+    # Enter a parse tree produced by finalgrammarParser#IntSubtracao.
+    def enterIntSubtracao(self, ctx:finalgrammarParser.IntSubtracaoContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#TermFactor.
-    def exitTermFactor(self, ctx:finalgrammarParser.TermFactorContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#Multi.
-    def enterMulti(self, ctx:finalgrammarParser.MultiContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#Multi.
-    def exitMulti(self, ctx:finalgrammarParser.MultiContext):
+    # Exit a parse tree produced by finalgrammarParser#IntSubtracao.
+    def exitIntSubtracao(self, ctx:finalgrammarParser.IntSubtracaoContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#ParentesesArit.
-    def enterParentesesArit(self, ctx:finalgrammarParser.ParentesesAritContext):
+    # Enter a parse tree produced by finalgrammarParser#IntMulti.
+    def enterIntMulti(self, ctx:finalgrammarParser.IntMultiContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#ParentesesArit.
-    def exitParentesesArit(self, ctx:finalgrammarParser.ParentesesAritContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#InteiroAri.
-    def enterInteiroAri(self, ctx:finalgrammarParser.InteiroAriContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#InteiroAri.
-    def exitInteiroAri(self, ctx:finalgrammarParser.InteiroAriContext):
+    # Exit a parse tree produced by finalgrammarParser#IntMulti.
+    def exitIntMulti(self, ctx:finalgrammarParser.IntMultiContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#IdAri.
-    def enterIdAri(self, ctx:finalgrammarParser.IdAriContext):
+    # Enter a parse tree produced by finalgrammarParser#IntDiv.
+    def enterIntDiv(self, ctx:finalgrammarParser.IntDivContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#IdAri.
-    def exitIdAri(self, ctx:finalgrammarParser.IdAriContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#RealAri.
-    def enterRealAri(self, ctx:finalgrammarParser.RealAriContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#RealAri.
-    def exitRealAri(self, ctx:finalgrammarParser.RealAriContext):
+    # Exit a parse tree produced by finalgrammarParser#IntDiv.
+    def exitIntDiv(self, ctx:finalgrammarParser.IntDivContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#CallFuncAri.
-    def enterCallFuncAri(self, ctx:finalgrammarParser.CallFuncAriContext):
+    # Enter a parse tree produced by finalgrammarParser#IntTermFactor.
+    def enterIntTermFactor(self, ctx:finalgrammarParser.IntTermFactorContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#CallFuncAri.
-    def exitCallFuncAri(self, ctx:finalgrammarParser.CallFuncAriContext):
+    # Exit a parse tree produced by finalgrammarParser#IntTermFactor.
+    def exitIntTermFactor(self, ctx:finalgrammarParser.IntTermFactorContext):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#MenosUnarioAri.
-    def enterMenosUnarioAri(self, ctx:finalgrammarParser.MenosUnarioAriContext):
+    # Enter a parse tree produced by finalgrammarParser#IntParentesesArit.
+    def enterIntParentesesArit(self, ctx:finalgrammarParser.IntParentesesAritContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#MenosUnarioAri.
-    def exitMenosUnarioAri(self, ctx:finalgrammarParser.MenosUnarioAriContext):
+    # Exit a parse tree produced by finalgrammarParser#IntParentesesArit.
+    def exitIntParentesesArit(self, ctx:finalgrammarParser.IntParentesesAritContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IntInteiroAri.
+    def enterIntInteiroAri(self, ctx:finalgrammarParser.IntInteiroAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IntInteiroAri.
+    def exitIntInteiroAri(self, ctx:finalgrammarParser.IntInteiroAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IntIdAri.
+    def enterIntIdAri(self, ctx:finalgrammarParser.IntIdAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IntIdAri.
+    def exitIntIdAri(self, ctx:finalgrammarParser.IntIdAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IntRealAri.
+    def enterIntRealAri(self, ctx:finalgrammarParser.IntRealAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IntRealAri.
+    def exitIntRealAri(self, ctx:finalgrammarParser.IntRealAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IntCallFuncAri.
+    def enterIntCallFuncAri(self, ctx:finalgrammarParser.IntCallFuncAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IntCallFuncAri.
+    def exitIntCallFuncAri(self, ctx:finalgrammarParser.IntCallFuncAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IntMenosUnarioAri.
+    def enterIntMenosUnarioAri(self, ctx:finalgrammarParser.IntMenosUnarioAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IntMenosUnarioAri.
+    def exitIntMenosUnarioAri(self, ctx:finalgrammarParser.IntMenosUnarioAriContext):
         pass
 
 

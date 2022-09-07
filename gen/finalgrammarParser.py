@@ -51,132 +51,133 @@ def serializedATN():
         1,34,1,34,1,34,1,34,1,34,1,34,3,34,458,8,34,1,35,1,35,3,35,462,8,
         35,1,35,0,6,20,22,28,30,32,34,36,0,2,4,6,8,10,12,14,16,18,20,22,
         24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,
-        68,70,0,1,3,0,37,37,39,40,42,42,494,0,75,1,0,0,0,2,88,1,0,0,0,4,
-        90,1,0,0,0,6,101,1,0,0,0,8,116,1,0,0,0,10,124,1,0,0,0,12,128,1,0,
-        0,0,14,135,1,0,0,0,16,139,1,0,0,0,18,143,1,0,0,0,20,145,1,0,0,0,
-        22,159,1,0,0,0,24,183,1,0,0,0,26,185,1,0,0,0,28,187,1,0,0,0,30,201,
-        1,0,0,0,32,221,1,0,0,0,34,232,1,0,0,0,36,255,1,0,0,0,38,257,1,0,
-        0,0,40,283,1,0,0,0,42,307,1,0,0,0,44,317,1,0,0,0,46,327,1,0,0,0,
-        48,338,1,0,0,0,50,340,1,0,0,0,52,349,1,0,0,0,54,359,1,0,0,0,56,371,
-        1,0,0,0,58,373,1,0,0,0,60,378,1,0,0,0,62,401,1,0,0,0,64,422,1,0,
-        0,0,66,439,1,0,0,0,68,457,1,0,0,0,70,461,1,0,0,0,72,74,3,2,1,0,73,
-        72,1,0,0,0,74,77,1,0,0,0,75,73,1,0,0,0,75,76,1,0,0,0,76,81,1,0,0,
-        0,77,75,1,0,0,0,78,80,3,38,19,0,79,78,1,0,0,0,80,83,1,0,0,0,81,79,
-        1,0,0,0,81,82,1,0,0,0,82,84,1,0,0,0,83,81,1,0,0,0,84,85,3,40,20,
-        0,85,1,1,0,0,0,86,89,3,4,2,0,87,89,3,6,3,0,88,86,1,0,0,0,88,87,1,
-        0,0,0,89,3,1,0,0,0,90,91,5,36,0,0,91,96,5,43,0,0,92,93,5,1,0,0,93,
-        95,5,43,0,0,94,92,1,0,0,0,95,98,1,0,0,0,96,94,1,0,0,0,96,97,1,0,
-        0,0,97,99,1,0,0,0,98,96,1,0,0,0,99,100,5,2,0,0,100,5,1,0,0,0,101,
-        102,5,36,0,0,102,103,5,43,0,0,103,104,5,3,0,0,104,111,7,0,0,0,105,
-        106,5,1,0,0,106,107,5,43,0,0,107,108,5,3,0,0,108,110,7,0,0,0,109,
-        105,1,0,0,0,110,113,1,0,0,0,111,109,1,0,0,0,111,112,1,0,0,0,112,
-        114,1,0,0,0,113,111,1,0,0,0,114,115,5,2,0,0,115,7,1,0,0,0,116,121,
-        3,10,5,0,117,118,5,1,0,0,118,120,3,10,5,0,119,117,1,0,0,0,120,123,
-        1,0,0,0,121,119,1,0,0,0,121,122,1,0,0,0,122,9,1,0,0,0,123,121,1,
-        0,0,0,124,125,5,43,0,0,125,126,5,3,0,0,126,127,7,0,0,0,127,11,1,
-        0,0,0,128,129,5,43,0,0,129,133,5,3,0,0,130,134,3,18,9,0,131,134,
-        5,42,0,0,132,134,5,37,0,0,133,130,1,0,0,0,133,131,1,0,0,0,133,132,
-        1,0,0,0,134,13,1,0,0,0,135,136,5,43,0,0,136,137,5,4,0,0,137,138,
-        7,0,0,0,138,15,1,0,0,0,139,140,5,43,0,0,140,141,5,5,0,0,141,142,
-        7,0,0,0,142,17,1,0,0,0,143,144,3,20,10,0,144,19,1,0,0,0,145,146,
-        6,10,-1,0,146,147,3,22,11,0,147,156,1,0,0,0,148,149,10,3,0,0,149,
-        150,5,6,0,0,150,155,3,22,11,0,151,152,10,2,0,0,152,153,5,7,0,0,153,
-        155,3,22,11,0,154,148,1,0,0,0,154,151,1,0,0,0,155,158,1,0,0,0,156,
-        154,1,0,0,0,156,157,1,0,0,0,157,21,1,0,0,0,158,156,1,0,0,0,159,160,
-        6,11,-1,0,160,161,3,24,12,0,161,170,1,0,0,0,162,163,10,3,0,0,163,
-        164,5,8,0,0,164,169,3,24,12,0,165,166,10,2,0,0,166,167,5,9,0,0,167,
-        169,3,24,12,0,168,162,1,0,0,0,168,165,1,0,0,0,169,172,1,0,0,0,170,
-        168,1,0,0,0,170,171,1,0,0,0,171,23,1,0,0,0,172,170,1,0,0,0,173,174,
-        5,10,0,0,174,175,3,20,10,0,175,176,5,11,0,0,176,184,1,0,0,0,177,
-        184,5,39,0,0,178,184,5,43,0,0,179,184,5,40,0,0,180,184,3,44,22,0,
-        181,182,5,7,0,0,182,184,3,24,12,0,183,173,1,0,0,0,183,177,1,0,0,
-        0,183,178,1,0,0,0,183,179,1,0,0,0,183,180,1,0,0,0,183,181,1,0,0,
-        0,184,25,1,0,0,0,185,186,3,28,14,0,186,27,1,0,0,0,187,188,6,14,-1,
-        0,188,189,3,30,15,0,189,198,1,0,0,0,190,191,10,3,0,0,191,192,5,12,
-        0,0,192,197,3,30,15,0,193,194,10,2,0,0,194,195,5,13,0,0,195,197,
-        3,30,15,0,196,190,1,0,0,0,196,193,1,0,0,0,197,200,1,0,0,0,198,196,
-        1,0,0,0,198,199,1,0,0,0,199,29,1,0,0,0,200,198,1,0,0,0,201,202,6,
-        15,-1,0,202,203,3,32,16,0,203,218,1,0,0,0,204,205,10,5,0,0,205,206,
-        5,14,0,0,206,217,3,32,16,0,207,208,10,4,0,0,208,209,5,15,0,0,209,
-        217,3,32,16,0,210,211,10,3,0,0,211,212,5,16,0,0,212,217,3,32,16,
-        0,213,214,10,2,0,0,214,215,5,17,0,0,215,217,3,32,16,0,216,204,1,
-        0,0,0,216,207,1,0,0,0,216,210,1,0,0,0,216,213,1,0,0,0,217,220,1,
-        0,0,0,218,216,1,0,0,0,218,219,1,0,0,0,219,31,1,0,0,0,220,218,1,0,
-        0,0,221,222,6,16,-1,0,222,223,3,34,17,0,223,229,1,0,0,0,224,225,
-        10,2,0,0,225,226,5,18,0,0,226,228,3,34,17,0,227,224,1,0,0,0,228,
-        231,1,0,0,0,229,227,1,0,0,0,229,230,1,0,0,0,230,33,1,0,0,0,231,229,
-        1,0,0,0,232,233,6,17,-1,0,233,234,3,36,18,0,234,240,1,0,0,0,235,
-        236,10,2,0,0,236,237,5,19,0,0,237,239,3,36,18,0,238,235,1,0,0,0,
-        239,242,1,0,0,0,240,238,1,0,0,0,240,241,1,0,0,0,241,35,1,0,0,0,242,
-        240,1,0,0,0,243,244,5,10,0,0,244,245,3,28,14,0,245,246,5,11,0,0,
-        246,256,1,0,0,0,247,256,5,39,0,0,248,256,5,40,0,0,249,256,5,42,0,
-        0,250,256,5,37,0,0,251,256,5,43,0,0,252,256,3,18,9,0,253,254,5,20,
-        0,0,254,256,3,36,18,0,255,243,1,0,0,0,255,247,1,0,0,0,255,248,1,
-        0,0,0,255,249,1,0,0,0,255,250,1,0,0,0,255,251,1,0,0,0,255,252,1,
-        0,0,0,255,253,1,0,0,0,256,37,1,0,0,0,257,258,5,21,0,0,258,259,5,
-        43,0,0,259,263,5,10,0,0,260,262,3,42,21,0,261,260,1,0,0,0,262,265,
-        1,0,0,0,263,261,1,0,0,0,263,264,1,0,0,0,264,266,1,0,0,0,265,263,
-        1,0,0,0,266,267,5,11,0,0,267,268,5,36,0,0,268,272,5,22,0,0,269,271,
-        3,2,1,0,270,269,1,0,0,0,271,274,1,0,0,0,272,270,1,0,0,0,272,273,
-        1,0,0,0,273,278,1,0,0,0,274,272,1,0,0,0,275,277,3,70,35,0,276,275,
-        1,0,0,0,277,280,1,0,0,0,278,276,1,0,0,0,278,279,1,0,0,0,279,281,
-        1,0,0,0,280,278,1,0,0,0,281,282,5,23,0,0,282,39,1,0,0,0,283,284,
-        5,21,0,0,284,285,5,24,0,0,285,289,5,10,0,0,286,288,3,42,21,0,287,
-        286,1,0,0,0,288,291,1,0,0,0,289,287,1,0,0,0,289,290,1,0,0,0,290,
-        292,1,0,0,0,291,289,1,0,0,0,292,293,5,11,0,0,293,297,5,22,0,0,294,
-        296,3,2,1,0,295,294,1,0,0,0,296,299,1,0,0,0,297,295,1,0,0,0,297,
-        298,1,0,0,0,298,301,1,0,0,0,299,297,1,0,0,0,300,302,3,70,35,0,301,
-        300,1,0,0,0,302,303,1,0,0,0,303,301,1,0,0,0,303,304,1,0,0,0,304,
-        305,1,0,0,0,305,306,5,23,0,0,306,41,1,0,0,0,307,308,5,36,0,0,308,
-        314,5,43,0,0,309,310,5,1,0,0,310,311,5,36,0,0,311,313,5,43,0,0,312,
-        309,1,0,0,0,313,316,1,0,0,0,314,312,1,0,0,0,314,315,1,0,0,0,315,
-        43,1,0,0,0,316,314,1,0,0,0,317,318,5,43,0,0,318,322,5,10,0,0,319,
-        321,3,46,23,0,320,319,1,0,0,0,321,324,1,0,0,0,322,320,1,0,0,0,322,
-        323,1,0,0,0,323,325,1,0,0,0,324,322,1,0,0,0,325,326,5,11,0,0,326,
-        45,1,0,0,0,327,332,3,48,24,0,328,329,5,1,0,0,329,331,3,48,24,0,330,
-        328,1,0,0,0,331,334,1,0,0,0,332,330,1,0,0,0,332,333,1,0,0,0,333,
-        47,1,0,0,0,334,332,1,0,0,0,335,339,5,43,0,0,336,339,3,44,22,0,337,
-        339,3,18,9,0,338,335,1,0,0,0,338,336,1,0,0,0,338,337,1,0,0,0,339,
-        49,1,0,0,0,340,345,5,25,0,0,341,346,5,43,0,0,342,346,5,37,0,0,343,
-        346,3,18,9,0,344,346,3,44,22,0,345,341,1,0,0,0,345,342,1,0,0,0,345,
-        343,1,0,0,0,345,344,1,0,0,0,346,347,1,0,0,0,347,348,5,2,0,0,348,
-        51,1,0,0,0,349,350,5,26,0,0,350,352,5,10,0,0,351,353,3,54,27,0,352,
-        351,1,0,0,0,353,354,1,0,0,0,354,352,1,0,0,0,354,355,1,0,0,0,355,
-        356,1,0,0,0,356,357,5,11,0,0,357,358,5,2,0,0,358,53,1,0,0,0,359,
-        364,3,56,28,0,360,361,5,1,0,0,361,363,3,56,28,0,362,360,1,0,0,0,
-        363,366,1,0,0,0,364,362,1,0,0,0,364,365,1,0,0,0,365,55,1,0,0,0,366,
-        364,1,0,0,0,367,372,5,42,0,0,368,372,5,43,0,0,369,372,3,18,9,0,370,
-        372,3,44,22,0,371,367,1,0,0,0,371,368,1,0,0,0,371,369,1,0,0,0,371,
-        370,1,0,0,0,372,57,1,0,0,0,373,374,5,43,0,0,374,375,5,3,0,0,375,
-        376,5,27,0,0,376,377,5,2,0,0,377,59,1,0,0,0,378,379,5,28,0,0,379,
-        380,5,10,0,0,380,381,3,26,13,0,381,382,5,11,0,0,382,386,5,22,0,0,
-        383,385,3,70,35,0,384,383,1,0,0,0,385,388,1,0,0,0,386,384,1,0,0,
-        0,386,387,1,0,0,0,387,389,1,0,0,0,388,386,1,0,0,0,389,399,5,23,0,
-        0,390,391,5,29,0,0,391,393,5,22,0,0,392,394,3,70,35,0,393,392,1,
-        0,0,0,394,395,1,0,0,0,395,393,1,0,0,0,395,396,1,0,0,0,396,397,1,
-        0,0,0,397,398,5,23,0,0,398,400,1,0,0,0,399,390,1,0,0,0,399,400,1,
-        0,0,0,400,61,1,0,0,0,401,402,5,30,0,0,402,403,5,43,0,0,403,404,5,
-        31,0,0,404,405,5,32,0,0,405,406,5,10,0,0,406,407,5,39,0,0,407,408,
-        5,33,0,0,408,411,5,39,0,0,409,410,5,33,0,0,410,412,5,39,0,0,411,
-        409,1,0,0,0,411,412,1,0,0,0,412,413,1,0,0,0,413,414,5,11,0,0,414,
-        416,5,22,0,0,415,417,3,70,35,0,416,415,1,0,0,0,417,418,1,0,0,0,418,
-        416,1,0,0,0,418,419,1,0,0,0,419,420,1,0,0,0,420,421,5,23,0,0,421,
-        63,1,0,0,0,422,423,5,34,0,0,423,425,5,22,0,0,424,426,3,70,35,0,425,
-        424,1,0,0,0,426,427,1,0,0,0,427,425,1,0,0,0,427,428,1,0,0,0,428,
-        429,1,0,0,0,429,430,5,23,0,0,430,431,5,35,0,0,431,432,5,10,0,0,432,
-        433,3,26,13,0,433,434,5,11,0,0,434,435,5,2,0,0,435,65,1,0,0,0,436,
-        440,3,62,31,0,437,440,3,64,32,0,438,440,3,60,30,0,439,436,1,0,0,
-        0,439,437,1,0,0,0,439,438,1,0,0,0,440,67,1,0,0,0,441,442,3,44,22,
-        0,442,443,5,2,0,0,443,458,1,0,0,0,444,445,3,12,6,0,445,446,5,2,0,
-        0,446,458,1,0,0,0,447,448,3,16,8,0,448,449,5,2,0,0,449,458,1,0,0,
-        0,450,451,3,14,7,0,451,452,5,2,0,0,452,458,1,0,0,0,453,458,3,50,
-        25,0,454,458,3,52,26,0,455,458,3,58,29,0,456,458,5,38,0,0,457,441,
-        1,0,0,0,457,444,1,0,0,0,457,447,1,0,0,0,457,450,1,0,0,0,457,453,
-        1,0,0,0,457,454,1,0,0,0,457,455,1,0,0,0,457,456,1,0,0,0,458,69,1,
-        0,0,0,459,462,3,68,34,0,460,462,3,66,33,0,461,459,1,0,0,0,461,460,
-        1,0,0,0,462,71,1,0,0,0,42,75,81,88,96,111,121,133,154,156,168,170,
-        183,196,198,216,218,229,240,255,263,272,278,289,297,303,314,322,
-        332,338,345,354,364,371,386,395,399,411,418,427,439,457,461
+        68,70,0,3,3,0,37,37,39,40,42,42,1,0,39,40,2,0,39,39,43,43,494,0,
+        75,1,0,0,0,2,88,1,0,0,0,4,90,1,0,0,0,6,101,1,0,0,0,8,116,1,0,0,0,
+        10,124,1,0,0,0,12,128,1,0,0,0,14,135,1,0,0,0,16,139,1,0,0,0,18,143,
+        1,0,0,0,20,145,1,0,0,0,22,159,1,0,0,0,24,183,1,0,0,0,26,185,1,0,
+        0,0,28,187,1,0,0,0,30,201,1,0,0,0,32,221,1,0,0,0,34,232,1,0,0,0,
+        36,255,1,0,0,0,38,257,1,0,0,0,40,283,1,0,0,0,42,307,1,0,0,0,44,317,
+        1,0,0,0,46,327,1,0,0,0,48,338,1,0,0,0,50,340,1,0,0,0,52,349,1,0,
+        0,0,54,359,1,0,0,0,56,371,1,0,0,0,58,373,1,0,0,0,60,378,1,0,0,0,
+        62,401,1,0,0,0,64,422,1,0,0,0,66,439,1,0,0,0,68,457,1,0,0,0,70,461,
+        1,0,0,0,72,74,3,2,1,0,73,72,1,0,0,0,74,77,1,0,0,0,75,73,1,0,0,0,
+        75,76,1,0,0,0,76,81,1,0,0,0,77,75,1,0,0,0,78,80,3,38,19,0,79,78,
+        1,0,0,0,80,83,1,0,0,0,81,79,1,0,0,0,81,82,1,0,0,0,82,84,1,0,0,0,
+        83,81,1,0,0,0,84,85,3,40,20,0,85,1,1,0,0,0,86,89,3,4,2,0,87,89,3,
+        6,3,0,88,86,1,0,0,0,88,87,1,0,0,0,89,3,1,0,0,0,90,91,5,36,0,0,91,
+        96,5,43,0,0,92,93,5,1,0,0,93,95,5,43,0,0,94,92,1,0,0,0,95,98,1,0,
+        0,0,96,94,1,0,0,0,96,97,1,0,0,0,97,99,1,0,0,0,98,96,1,0,0,0,99,100,
+        5,2,0,0,100,5,1,0,0,0,101,102,5,36,0,0,102,103,5,43,0,0,103,104,
+        5,3,0,0,104,111,7,0,0,0,105,106,5,1,0,0,106,107,5,43,0,0,107,108,
+        5,3,0,0,108,110,7,0,0,0,109,105,1,0,0,0,110,113,1,0,0,0,111,109,
+        1,0,0,0,111,112,1,0,0,0,112,114,1,0,0,0,113,111,1,0,0,0,114,115,
+        5,2,0,0,115,7,1,0,0,0,116,121,3,10,5,0,117,118,5,1,0,0,118,120,3,
+        10,5,0,119,117,1,0,0,0,120,123,1,0,0,0,121,119,1,0,0,0,121,122,1,
+        0,0,0,122,9,1,0,0,0,123,121,1,0,0,0,124,125,5,43,0,0,125,126,5,3,
+        0,0,126,127,7,0,0,0,127,11,1,0,0,0,128,129,5,43,0,0,129,133,5,3,
+        0,0,130,134,3,18,9,0,131,134,5,42,0,0,132,134,5,37,0,0,133,130,1,
+        0,0,0,133,131,1,0,0,0,133,132,1,0,0,0,134,13,1,0,0,0,135,136,5,43,
+        0,0,136,137,5,4,0,0,137,138,7,1,0,0,138,15,1,0,0,0,139,140,5,43,
+        0,0,140,141,5,5,0,0,141,142,7,1,0,0,142,17,1,0,0,0,143,144,3,20,
+        10,0,144,19,1,0,0,0,145,146,6,10,-1,0,146,147,3,22,11,0,147,156,
+        1,0,0,0,148,149,10,3,0,0,149,150,5,6,0,0,150,155,3,22,11,0,151,152,
+        10,2,0,0,152,153,5,7,0,0,153,155,3,22,11,0,154,148,1,0,0,0,154,151,
+        1,0,0,0,155,158,1,0,0,0,156,154,1,0,0,0,156,157,1,0,0,0,157,21,1,
+        0,0,0,158,156,1,0,0,0,159,160,6,11,-1,0,160,161,3,24,12,0,161,170,
+        1,0,0,0,162,163,10,3,0,0,163,164,5,8,0,0,164,169,3,24,12,0,165,166,
+        10,2,0,0,166,167,5,9,0,0,167,169,3,24,12,0,168,162,1,0,0,0,168,165,
+        1,0,0,0,169,172,1,0,0,0,170,168,1,0,0,0,170,171,1,0,0,0,171,23,1,
+        0,0,0,172,170,1,0,0,0,173,174,5,10,0,0,174,175,3,20,10,0,175,176,
+        5,11,0,0,176,184,1,0,0,0,177,184,5,39,0,0,178,184,5,43,0,0,179,184,
+        5,40,0,0,180,184,3,44,22,0,181,182,5,7,0,0,182,184,3,24,12,0,183,
+        173,1,0,0,0,183,177,1,0,0,0,183,178,1,0,0,0,183,179,1,0,0,0,183,
+        180,1,0,0,0,183,181,1,0,0,0,184,25,1,0,0,0,185,186,3,28,14,0,186,
+        27,1,0,0,0,187,188,6,14,-1,0,188,189,3,30,15,0,189,198,1,0,0,0,190,
+        191,10,3,0,0,191,192,5,12,0,0,192,197,3,30,15,0,193,194,10,2,0,0,
+        194,195,5,13,0,0,195,197,3,30,15,0,196,190,1,0,0,0,196,193,1,0,0,
+        0,197,200,1,0,0,0,198,196,1,0,0,0,198,199,1,0,0,0,199,29,1,0,0,0,
+        200,198,1,0,0,0,201,202,6,15,-1,0,202,203,3,32,16,0,203,218,1,0,
+        0,0,204,205,10,5,0,0,205,206,5,14,0,0,206,217,3,32,16,0,207,208,
+        10,4,0,0,208,209,5,15,0,0,209,217,3,32,16,0,210,211,10,3,0,0,211,
+        212,5,16,0,0,212,217,3,32,16,0,213,214,10,2,0,0,214,215,5,17,0,0,
+        215,217,3,32,16,0,216,204,1,0,0,0,216,207,1,0,0,0,216,210,1,0,0,
+        0,216,213,1,0,0,0,217,220,1,0,0,0,218,216,1,0,0,0,218,219,1,0,0,
+        0,219,31,1,0,0,0,220,218,1,0,0,0,221,222,6,16,-1,0,222,223,3,34,
+        17,0,223,229,1,0,0,0,224,225,10,2,0,0,225,226,5,18,0,0,226,228,3,
+        34,17,0,227,224,1,0,0,0,228,231,1,0,0,0,229,227,1,0,0,0,229,230,
+        1,0,0,0,230,33,1,0,0,0,231,229,1,0,0,0,232,233,6,17,-1,0,233,234,
+        3,36,18,0,234,240,1,0,0,0,235,236,10,2,0,0,236,237,5,19,0,0,237,
+        239,3,36,18,0,238,235,1,0,0,0,239,242,1,0,0,0,240,238,1,0,0,0,240,
+        241,1,0,0,0,241,35,1,0,0,0,242,240,1,0,0,0,243,244,5,10,0,0,244,
+        245,3,28,14,0,245,246,5,11,0,0,246,256,1,0,0,0,247,256,5,39,0,0,
+        248,256,5,40,0,0,249,256,5,42,0,0,250,256,5,37,0,0,251,256,5,43,
+        0,0,252,256,3,18,9,0,253,254,5,20,0,0,254,256,3,36,18,0,255,243,
+        1,0,0,0,255,247,1,0,0,0,255,248,1,0,0,0,255,249,1,0,0,0,255,250,
+        1,0,0,0,255,251,1,0,0,0,255,252,1,0,0,0,255,253,1,0,0,0,256,37,1,
+        0,0,0,257,258,5,21,0,0,258,259,5,43,0,0,259,263,5,10,0,0,260,262,
+        3,42,21,0,261,260,1,0,0,0,262,265,1,0,0,0,263,261,1,0,0,0,263,264,
+        1,0,0,0,264,266,1,0,0,0,265,263,1,0,0,0,266,267,5,11,0,0,267,268,
+        5,36,0,0,268,272,5,22,0,0,269,271,3,2,1,0,270,269,1,0,0,0,271,274,
+        1,0,0,0,272,270,1,0,0,0,272,273,1,0,0,0,273,278,1,0,0,0,274,272,
+        1,0,0,0,275,277,3,70,35,0,276,275,1,0,0,0,277,280,1,0,0,0,278,276,
+        1,0,0,0,278,279,1,0,0,0,279,281,1,0,0,0,280,278,1,0,0,0,281,282,
+        5,23,0,0,282,39,1,0,0,0,283,284,5,21,0,0,284,285,5,24,0,0,285,289,
+        5,10,0,0,286,288,3,42,21,0,287,286,1,0,0,0,288,291,1,0,0,0,289,287,
+        1,0,0,0,289,290,1,0,0,0,290,292,1,0,0,0,291,289,1,0,0,0,292,293,
+        5,11,0,0,293,297,5,22,0,0,294,296,3,2,1,0,295,294,1,0,0,0,296,299,
+        1,0,0,0,297,295,1,0,0,0,297,298,1,0,0,0,298,301,1,0,0,0,299,297,
+        1,0,0,0,300,302,3,70,35,0,301,300,1,0,0,0,302,303,1,0,0,0,303,301,
+        1,0,0,0,303,304,1,0,0,0,304,305,1,0,0,0,305,306,5,23,0,0,306,41,
+        1,0,0,0,307,308,5,36,0,0,308,314,5,43,0,0,309,310,5,1,0,0,310,311,
+        5,36,0,0,311,313,5,43,0,0,312,309,1,0,0,0,313,316,1,0,0,0,314,312,
+        1,0,0,0,314,315,1,0,0,0,315,43,1,0,0,0,316,314,1,0,0,0,317,318,5,
+        43,0,0,318,322,5,10,0,0,319,321,3,46,23,0,320,319,1,0,0,0,321,324,
+        1,0,0,0,322,320,1,0,0,0,322,323,1,0,0,0,323,325,1,0,0,0,324,322,
+        1,0,0,0,325,326,5,11,0,0,326,45,1,0,0,0,327,332,3,48,24,0,328,329,
+        5,1,0,0,329,331,3,48,24,0,330,328,1,0,0,0,331,334,1,0,0,0,332,330,
+        1,0,0,0,332,333,1,0,0,0,333,47,1,0,0,0,334,332,1,0,0,0,335,339,5,
+        43,0,0,336,339,3,44,22,0,337,339,3,18,9,0,338,335,1,0,0,0,338,336,
+        1,0,0,0,338,337,1,0,0,0,339,49,1,0,0,0,340,345,5,25,0,0,341,346,
+        5,43,0,0,342,346,5,37,0,0,343,346,3,18,9,0,344,346,3,44,22,0,345,
+        341,1,0,0,0,345,342,1,0,0,0,345,343,1,0,0,0,345,344,1,0,0,0,346,
+        347,1,0,0,0,347,348,5,2,0,0,348,51,1,0,0,0,349,350,5,26,0,0,350,
+        352,5,10,0,0,351,353,3,54,27,0,352,351,1,0,0,0,353,354,1,0,0,0,354,
+        352,1,0,0,0,354,355,1,0,0,0,355,356,1,0,0,0,356,357,5,11,0,0,357,
+        358,5,2,0,0,358,53,1,0,0,0,359,364,3,56,28,0,360,361,5,1,0,0,361,
+        363,3,56,28,0,362,360,1,0,0,0,363,366,1,0,0,0,364,362,1,0,0,0,364,
+        365,1,0,0,0,365,55,1,0,0,0,366,364,1,0,0,0,367,372,5,42,0,0,368,
+        372,5,43,0,0,369,372,3,18,9,0,370,372,3,44,22,0,371,367,1,0,0,0,
+        371,368,1,0,0,0,371,369,1,0,0,0,371,370,1,0,0,0,372,57,1,0,0,0,373,
+        374,5,43,0,0,374,375,5,3,0,0,375,376,5,27,0,0,376,377,5,2,0,0,377,
+        59,1,0,0,0,378,379,5,28,0,0,379,380,5,10,0,0,380,381,3,26,13,0,381,
+        382,5,11,0,0,382,386,5,22,0,0,383,385,3,70,35,0,384,383,1,0,0,0,
+        385,388,1,0,0,0,386,384,1,0,0,0,386,387,1,0,0,0,387,389,1,0,0,0,
+        388,386,1,0,0,0,389,399,5,23,0,0,390,391,5,29,0,0,391,393,5,22,0,
+        0,392,394,3,70,35,0,393,392,1,0,0,0,394,395,1,0,0,0,395,393,1,0,
+        0,0,395,396,1,0,0,0,396,397,1,0,0,0,397,398,5,23,0,0,398,400,1,0,
+        0,0,399,390,1,0,0,0,399,400,1,0,0,0,400,61,1,0,0,0,401,402,5,30,
+        0,0,402,403,5,43,0,0,403,404,5,31,0,0,404,405,5,32,0,0,405,406,5,
+        10,0,0,406,407,7,2,0,0,407,408,5,33,0,0,408,411,7,2,0,0,409,410,
+        5,33,0,0,410,412,7,2,0,0,411,409,1,0,0,0,411,412,1,0,0,0,412,413,
+        1,0,0,0,413,414,5,11,0,0,414,416,5,22,0,0,415,417,3,70,35,0,416,
+        415,1,0,0,0,417,418,1,0,0,0,418,416,1,0,0,0,418,419,1,0,0,0,419,
+        420,1,0,0,0,420,421,5,23,0,0,421,63,1,0,0,0,422,423,5,34,0,0,423,
+        425,5,22,0,0,424,426,3,70,35,0,425,424,1,0,0,0,426,427,1,0,0,0,427,
+        425,1,0,0,0,427,428,1,0,0,0,428,429,1,0,0,0,429,430,5,23,0,0,430,
+        431,5,35,0,0,431,432,5,10,0,0,432,433,3,26,13,0,433,434,5,11,0,0,
+        434,435,5,2,0,0,435,65,1,0,0,0,436,440,3,62,31,0,437,440,3,64,32,
+        0,438,440,3,60,30,0,439,436,1,0,0,0,439,437,1,0,0,0,439,438,1,0,
+        0,0,440,67,1,0,0,0,441,442,3,44,22,0,442,443,5,2,0,0,443,458,1,0,
+        0,0,444,445,3,12,6,0,445,446,5,2,0,0,446,458,1,0,0,0,447,448,3,16,
+        8,0,448,449,5,2,0,0,449,458,1,0,0,0,450,451,3,14,7,0,451,452,5,2,
+        0,0,452,458,1,0,0,0,453,458,3,50,25,0,454,458,3,52,26,0,455,458,
+        3,58,29,0,456,458,5,38,0,0,457,441,1,0,0,0,457,444,1,0,0,0,457,447,
+        1,0,0,0,457,450,1,0,0,0,457,453,1,0,0,0,457,454,1,0,0,0,457,455,
+        1,0,0,0,457,456,1,0,0,0,458,69,1,0,0,0,459,462,3,68,34,0,460,462,
+        3,66,33,0,461,459,1,0,0,0,461,460,1,0,0,0,462,71,1,0,0,0,42,75,81,
+        88,96,111,121,133,154,156,168,170,183,196,198,216,218,229,240,255,
+        263,272,278,289,297,303,314,322,332,338,345,354,364,371,386,395,
+        399,411,418,427,439,457,461
     ]
 
 class finalgrammarParser ( Parser ):
@@ -219,9 +220,9 @@ class finalgrammarParser ( Parser ):
     RULE_att_s = 7
     RULE_att_m = 8
     RULE_expression = 9
-    RULE_expr = 10
-    RULE_term = 11
-    RULE_factor = 12
+    RULE_expr_int = 10
+    RULE_term_int = 11
+    RULE_factor_int = 12
     RULE_teste_comp = 13
     RULE_expr_comp = 14
     RULE_term_comp = 15
@@ -247,13 +248,13 @@ class finalgrammarParser ( Parser ):
     RULE_blocks = 35
 
     ruleNames =  [ "programa", "decVar", "sm_dec_var", "att_dec_var", "list_att", 
-                   "att", "att_e", "att_s", "att_m", "expression", "expr", 
-                   "term", "factor", "teste_comp", "expr_comp", "term_comp", 
-                   "expr_bool", "term_bool", "fact_comp", "function", "main_function", 
-                   "listParam", "call_func", "list_callf_param", "list_callf", 
-                   "return_stm", "print_stm", "list_p", "list_sv", "input_stm", 
-                   "if_stm", "for_stm", "do_while_stm", "f_stm", "s_stm", 
-                   "blocks" ]
+                   "att", "att_e", "att_s", "att_m", "expression", "expr_int", 
+                   "term_int", "factor_int", "teste_comp", "expr_comp", 
+                   "term_comp", "expr_bool", "term_bool", "fact_comp", "function", 
+                   "main_function", "listParam", "call_func", "list_callf_param", 
+                   "list_callf", "return_stm", "print_stm", "list_p", "list_sv", 
+                   "input_stm", "if_stm", "for_stm", "do_while_stm", "f_stm", 
+                   "s_stm", "blocks" ]
 
     EOF = Token.EOF
     T__0=1
@@ -819,14 +820,8 @@ class finalgrammarParser ( Parser ):
         def ID(self):
             return self.getToken(finalgrammarParser.ID, 0)
 
-        def STRING(self):
-            return self.getToken(finalgrammarParser.STRING, 0)
-
         def REAL(self):
             return self.getToken(finalgrammarParser.REAL, 0)
-
-        def BOOL(self):
-            return self.getToken(finalgrammarParser.BOOL, 0)
 
         def INT(self):
             return self.getToken(finalgrammarParser.INT, 0)
@@ -858,7 +853,7 @@ class finalgrammarParser ( Parser ):
             self.match(finalgrammarParser.T__3)
             self.state = 137
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << finalgrammarParser.BOOL) | (1 << finalgrammarParser.INT) | (1 << finalgrammarParser.REAL) | (1 << finalgrammarParser.STRING))) != 0)):
+            if not(_la==finalgrammarParser.INT or _la==finalgrammarParser.REAL):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -882,14 +877,8 @@ class finalgrammarParser ( Parser ):
         def ID(self):
             return self.getToken(finalgrammarParser.ID, 0)
 
-        def STRING(self):
-            return self.getToken(finalgrammarParser.STRING, 0)
-
         def REAL(self):
             return self.getToken(finalgrammarParser.REAL, 0)
-
-        def BOOL(self):
-            return self.getToken(finalgrammarParser.BOOL, 0)
 
         def INT(self):
             return self.getToken(finalgrammarParser.INT, 0)
@@ -921,7 +910,7 @@ class finalgrammarParser ( Parser ):
             self.match(finalgrammarParser.T__4)
             self.state = 141
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << finalgrammarParser.BOOL) | (1 << finalgrammarParser.INT) | (1 << finalgrammarParser.REAL) | (1 << finalgrammarParser.STRING))) != 0)):
+            if not(_la==finalgrammarParser.INT or _la==finalgrammarParser.REAL):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -941,10 +930,9 @@ class finalgrammarParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.val = None
 
-        def expr(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExprContext,0)
+        def expr_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Expr_intContext,0)
 
 
         def getRuleIndex(self):
@@ -968,7 +956,7 @@ class finalgrammarParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 143
-            self.expr(0)
+            self.expr_int(0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -978,103 +966,101 @@ class finalgrammarParser ( Parser ):
         return localctx
 
 
-    class ExprContext(ParserRuleContext):
+    class Expr_intContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.val = None
 
 
         def getRuleIndex(self):
-            return finalgrammarParser.RULE_expr
+            return finalgrammarParser.RULE_expr_int
 
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
-            self.val = ctx.val
 
 
-    class SomaContext(ExprContext):
+    class IntExprTermContext(Expr_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Expr_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExprContext,0)
-
-        def term(self):
-            return self.getTypedRuleContext(finalgrammarParser.TermContext,0)
+        def term_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Term_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSoma" ):
-                listener.enterSoma(self)
+            if hasattr( listener, "enterIntExprTerm" ):
+                listener.enterIntExprTerm(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSoma" ):
-                listener.exitSoma(self)
+            if hasattr( listener, "exitIntExprTerm" ):
+                listener.exitIntExprTerm(self)
 
 
-    class ExprTermContext(ExprContext):
+    class IntSomaContext(Expr_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Expr_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def term(self):
-            return self.getTypedRuleContext(finalgrammarParser.TermContext,0)
+        def expr_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Expr_intContext,0)
+
+        def term_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Term_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExprTerm" ):
-                listener.enterExprTerm(self)
+            if hasattr( listener, "enterIntSoma" ):
+                listener.enterIntSoma(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExprTerm" ):
-                listener.exitExprTerm(self)
+            if hasattr( listener, "exitIntSoma" ):
+                listener.exitIntSoma(self)
 
 
-    class SubtracaoContext(ExprContext):
+    class IntSubtracaoContext(Expr_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Expr_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def expr(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExprContext,0)
+        def expr_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Expr_intContext,0)
 
-        def term(self):
-            return self.getTypedRuleContext(finalgrammarParser.TermContext,0)
+        def term_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Term_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubtracao" ):
-                listener.enterSubtracao(self)
+            if hasattr( listener, "enterIntSubtracao" ):
+                listener.enterIntSubtracao(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubtracao" ):
-                listener.exitSubtracao(self)
+            if hasattr( listener, "exitIntSubtracao" ):
+                listener.exitIntSubtracao(self)
 
 
 
-    def expr(self, _p:int=0):
+    def expr_int(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = finalgrammarParser.ExprContext(self, self._ctx, _parentState)
+        localctx = finalgrammarParser.Expr_intContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 20
-        self.enterRecursionRule(localctx, 20, self.RULE_expr, _p)
+        self.enterRecursionRule(localctx, 20, self.RULE_expr_int, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            localctx = finalgrammarParser.ExprTermContext(self, localctx)
+            localctx = finalgrammarParser.IntExprTermContext(self, localctx)
             self._ctx = localctx
             _prevctx = localctx
 
             self.state = 146
-            self.term(0)
+            self.term_int(0)
             self._ctx.stop = self._input.LT(-1)
             self.state = 156
             self._errHandler.sync(self)
@@ -1088,8 +1074,8 @@ class finalgrammarParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
                     if la_ == 1:
-                        localctx = finalgrammarParser.SomaContext(self, finalgrammarParser.ExprContext(self, _parentctx, _parentState))
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                        localctx = finalgrammarParser.IntSomaContext(self, finalgrammarParser.Expr_intContext(self, _parentctx, _parentState))
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr_int)
                         self.state = 148
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
@@ -1097,12 +1083,12 @@ class finalgrammarParser ( Parser ):
                         self.state = 149
                         self.match(finalgrammarParser.T__5)
                         self.state = 150
-                        self.term(0)
+                        self.term_int(0)
                         pass
 
                     elif la_ == 2:
-                        localctx = finalgrammarParser.SubtracaoContext(self, finalgrammarParser.ExprContext(self, _parentctx, _parentState))
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                        localctx = finalgrammarParser.IntSubtracaoContext(self, finalgrammarParser.Expr_intContext(self, _parentctx, _parentState))
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr_int)
                         self.state = 151
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
@@ -1110,7 +1096,7 @@ class finalgrammarParser ( Parser ):
                         self.state = 152
                         self.match(finalgrammarParser.T__6)
                         self.state = 153
-                        self.term(0)
+                        self.term_int(0)
                         pass
 
              
@@ -1127,103 +1113,101 @@ class finalgrammarParser ( Parser ):
         return localctx
 
 
-    class TermContext(ParserRuleContext):
+    class Term_intContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.val = None
 
 
         def getRuleIndex(self):
-            return finalgrammarParser.RULE_term
+            return finalgrammarParser.RULE_term_int
 
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
-            self.val = ctx.val
 
 
-    class DivContext(TermContext):
+    class IntMultiContext(Term_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.TermContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Term_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def term(self):
-            return self.getTypedRuleContext(finalgrammarParser.TermContext,0)
+        def term_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Term_intContext,0)
 
-        def factor(self):
-            return self.getTypedRuleContext(finalgrammarParser.FactorContext,0)
+        def factor_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Factor_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterDiv" ):
-                listener.enterDiv(self)
+            if hasattr( listener, "enterIntMulti" ):
+                listener.enterIntMulti(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitDiv" ):
-                listener.exitDiv(self)
+            if hasattr( listener, "exitIntMulti" ):
+                listener.exitIntMulti(self)
 
 
-    class TermFactorContext(TermContext):
+    class IntDivContext(Term_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.TermContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Term_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def factor(self):
-            return self.getTypedRuleContext(finalgrammarParser.FactorContext,0)
+        def term_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Term_intContext,0)
+
+        def factor_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Factor_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterTermFactor" ):
-                listener.enterTermFactor(self)
+            if hasattr( listener, "enterIntDiv" ):
+                listener.enterIntDiv(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitTermFactor" ):
-                listener.exitTermFactor(self)
+            if hasattr( listener, "exitIntDiv" ):
+                listener.exitIntDiv(self)
 
 
-    class MultiContext(TermContext):
+    class IntTermFactorContext(Term_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.TermContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Term_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def term(self):
-            return self.getTypedRuleContext(finalgrammarParser.TermContext,0)
-
-        def factor(self):
-            return self.getTypedRuleContext(finalgrammarParser.FactorContext,0)
+        def factor_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Factor_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMulti" ):
-                listener.enterMulti(self)
+            if hasattr( listener, "enterIntTermFactor" ):
+                listener.enterIntTermFactor(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMulti" ):
-                listener.exitMulti(self)
+            if hasattr( listener, "exitIntTermFactor" ):
+                listener.exitIntTermFactor(self)
 
 
 
-    def term(self, _p:int=0):
+    def term_int(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = finalgrammarParser.TermContext(self, self._ctx, _parentState)
+        localctx = finalgrammarParser.Term_intContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 22
-        self.enterRecursionRule(localctx, 22, self.RULE_term, _p)
+        self.enterRecursionRule(localctx, 22, self.RULE_term_int, _p)
         try:
             self.enterOuterAlt(localctx, 1)
-            localctx = finalgrammarParser.TermFactorContext(self, localctx)
+            localctx = finalgrammarParser.IntTermFactorContext(self, localctx)
             self._ctx = localctx
             _prevctx = localctx
 
             self.state = 160
-            self.factor()
+            self.factor_int()
             self._ctx.stop = self._input.LT(-1)
             self.state = 170
             self._errHandler.sync(self)
@@ -1237,8 +1221,8 @@ class finalgrammarParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
                     if la_ == 1:
-                        localctx = finalgrammarParser.MultiContext(self, finalgrammarParser.TermContext(self, _parentctx, _parentState))
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_term)
+                        localctx = finalgrammarParser.IntMultiContext(self, finalgrammarParser.Term_intContext(self, _parentctx, _parentState))
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_term_int)
                         self.state = 162
                         if not self.precpred(self._ctx, 3):
                             from antlr4.error.Errors import FailedPredicateException
@@ -1246,12 +1230,12 @@ class finalgrammarParser ( Parser ):
                         self.state = 163
                         self.match(finalgrammarParser.T__7)
                         self.state = 164
-                        self.factor()
+                        self.factor_int()
                         pass
 
                     elif la_ == 2:
-                        localctx = finalgrammarParser.DivContext(self, finalgrammarParser.TermContext(self, _parentctx, _parentState))
-                        self.pushNewRecursionContext(localctx, _startState, self.RULE_term)
+                        localctx = finalgrammarParser.IntDivContext(self, finalgrammarParser.Term_intContext(self, _parentctx, _parentState))
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_term_int)
                         self.state = 165
                         if not self.precpred(self._ctx, 2):
                             from antlr4.error.Errors import FailedPredicateException
@@ -1259,7 +1243,7 @@ class finalgrammarParser ( Parser ):
                         self.state = 166
                         self.match(finalgrammarParser.T__8)
                         self.state = 167
-                        self.factor()
+                        self.factor_int()
                         pass
 
              
@@ -1276,47 +1260,63 @@ class finalgrammarParser ( Parser ):
         return localctx
 
 
-    class FactorContext(ParserRuleContext):
+    class Factor_intContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
-            self.val = None
 
 
         def getRuleIndex(self):
-            return finalgrammarParser.RULE_factor
+            return finalgrammarParser.RULE_factor_int
 
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
-            self.val = ctx.val
 
 
 
-    class MenosUnarioAriContext(FactorContext):
+    class IntParentesesAritContext(Factor_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def factor(self):
-            return self.getTypedRuleContext(finalgrammarParser.FactorContext,0)
+        def expr_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Expr_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMenosUnarioAri" ):
-                listener.enterMenosUnarioAri(self)
+            if hasattr( listener, "enterIntParentesesArit" ):
+                listener.enterIntParentesesArit(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMenosUnarioAri" ):
-                listener.exitMenosUnarioAri(self)
+            if hasattr( listener, "exitIntParentesesArit" ):
+                listener.exitIntParentesesArit(self)
 
 
-    class InteiroAriContext(FactorContext):
+    class IntIdAriContext(Factor_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(finalgrammarParser.ID, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIntIdAri" ):
+                listener.enterIntIdAri(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIntIdAri" ):
+                listener.exitIntIdAri(self)
+
+
+    class IntInteiroAriContext(Factor_intContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -1324,17 +1324,35 @@ class finalgrammarParser ( Parser ):
             return self.getToken(finalgrammarParser.INT, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterInteiroAri" ):
-                listener.enterInteiroAri(self)
+            if hasattr( listener, "enterIntInteiroAri" ):
+                listener.enterIntInteiroAri(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitInteiroAri" ):
-                listener.exitInteiroAri(self)
+            if hasattr( listener, "exitIntInteiroAri" ):
+                listener.exitIntInteiroAri(self)
 
 
-    class CallFuncAriContext(FactorContext):
+    class IntRealAriContext(Factor_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def REAL(self):
+            return self.getToken(finalgrammarParser.REAL, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIntRealAri" ):
+                listener.enterIntRealAri(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIntRealAri" ):
+                listener.exitIntRealAri(self)
+
+
+    class IntCallFuncAriContext(Factor_intContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -1343,124 +1361,88 @@ class finalgrammarParser ( Parser ):
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterCallFuncAri" ):
-                listener.enterCallFuncAri(self)
+            if hasattr( listener, "enterIntCallFuncAri" ):
+                listener.enterIntCallFuncAri(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitCallFuncAri" ):
-                listener.exitCallFuncAri(self)
+            if hasattr( listener, "exitIntCallFuncAri" ):
+                listener.exitIntCallFuncAri(self)
 
 
-    class RealAriContext(FactorContext):
+    class IntMenosUnarioAriContext(Factor_intContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Factor_intContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def REAL(self):
-            return self.getToken(finalgrammarParser.REAL, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRealAri" ):
-                listener.enterRealAri(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRealAri" ):
-                listener.exitRealAri(self)
-
-
-    class ParentesesAritContext(FactorContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def expr(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExprContext,0)
+        def factor_int(self):
+            return self.getTypedRuleContext(finalgrammarParser.Factor_intContext,0)
 
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParentesesArit" ):
-                listener.enterParentesesArit(self)
+            if hasattr( listener, "enterIntMenosUnarioAri" ):
+                listener.enterIntMenosUnarioAri(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParentesesArit" ):
-                listener.exitParentesesArit(self)
-
-
-    class IdAriContext(FactorContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.FactorContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def ID(self):
-            return self.getToken(finalgrammarParser.ID, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIdAri" ):
-                listener.enterIdAri(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIdAri" ):
-                listener.exitIdAri(self)
+            if hasattr( listener, "exitIntMenosUnarioAri" ):
+                listener.exitIntMenosUnarioAri(self)
 
 
 
-    def factor(self):
+    def factor_int(self):
 
-        localctx = finalgrammarParser.FactorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_factor)
+        localctx = finalgrammarParser.Factor_intContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_factor_int)
         try:
             self.state = 183
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
-                localctx = finalgrammarParser.ParentesesAritContext(self, localctx)
+                localctx = finalgrammarParser.IntParentesesAritContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 173
                 self.match(finalgrammarParser.T__9)
                 self.state = 174
-                self.expr(0)
+                self.expr_int(0)
                 self.state = 175
                 self.match(finalgrammarParser.T__10)
                 pass
 
             elif la_ == 2:
-                localctx = finalgrammarParser.InteiroAriContext(self, localctx)
+                localctx = finalgrammarParser.IntInteiroAriContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 177
                 self.match(finalgrammarParser.INT)
                 pass
 
             elif la_ == 3:
-                localctx = finalgrammarParser.IdAriContext(self, localctx)
+                localctx = finalgrammarParser.IntIdAriContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 178
                 self.match(finalgrammarParser.ID)
                 pass
 
             elif la_ == 4:
-                localctx = finalgrammarParser.RealAriContext(self, localctx)
+                localctx = finalgrammarParser.IntRealAriContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 179
                 self.match(finalgrammarParser.REAL)
                 pass
 
             elif la_ == 5:
-                localctx = finalgrammarParser.CallFuncAriContext(self, localctx)
+                localctx = finalgrammarParser.IntCallFuncAriContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 180
                 self.call_func()
                 pass
 
             elif la_ == 6:
-                localctx = finalgrammarParser.MenosUnarioAriContext(self, localctx)
+                localctx = finalgrammarParser.IntMenosUnarioAriContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 181
                 self.match(finalgrammarParser.T__6)
                 self.state = 182
-                self.factor()
+                self.factor_int()
                 pass
 
 
@@ -3272,8 +3254,11 @@ class finalgrammarParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def ID(self):
-            return self.getToken(finalgrammarParser.ID, 0)
+        def ID(self, i:int=None):
+            if i is None:
+                return self.getTokens(finalgrammarParser.ID)
+            else:
+                return self.getToken(finalgrammarParser.ID, i)
 
         def INT(self, i:int=None):
             if i is None:
@@ -3320,11 +3305,21 @@ class finalgrammarParser ( Parser ):
             self.state = 405
             self.match(finalgrammarParser.T__9)
             self.state = 406
-            self.match(finalgrammarParser.INT)
+            _la = self._input.LA(1)
+            if not(_la==finalgrammarParser.INT or _la==finalgrammarParser.ID):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
             self.state = 407
             self.match(finalgrammarParser.T__32)
             self.state = 408
-            self.match(finalgrammarParser.INT)
+            _la = self._input.LA(1)
+            if not(_la==finalgrammarParser.INT or _la==finalgrammarParser.ID):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
             self.state = 411
             self._errHandler.sync(self)
             _la = self._input.LA(1)
@@ -3332,7 +3327,12 @@ class finalgrammarParser ( Parser ):
                 self.state = 409
                 self.match(finalgrammarParser.T__32)
                 self.state = 410
-                self.match(finalgrammarParser.INT)
+                _la = self._input.LA(1)
+                if not(_la==finalgrammarParser.INT or _la==finalgrammarParser.ID):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
 
 
             self.state = 413
@@ -3695,8 +3695,8 @@ class finalgrammarParser ( Parser ):
     def sempred(self, localctx:RuleContext, ruleIndex:int, predIndex:int):
         if self._predicates == None:
             self._predicates = dict()
-        self._predicates[10] = self.expr_sempred
-        self._predicates[11] = self.term_sempred
+        self._predicates[10] = self.expr_int_sempred
+        self._predicates[11] = self.term_int_sempred
         self._predicates[14] = self.expr_comp_sempred
         self._predicates[15] = self.term_comp_sempred
         self._predicates[16] = self.expr_bool_sempred
@@ -3707,7 +3707,7 @@ class finalgrammarParser ( Parser ):
         else:
             return pred(localctx, predIndex)
 
-    def expr_sempred(self, localctx:ExprContext, predIndex:int):
+    def expr_int_sempred(self, localctx:Expr_intContext, predIndex:int):
             if predIndex == 0:
                 return self.precpred(self._ctx, 3)
          
@@ -3716,7 +3716,7 @@ class finalgrammarParser ( Parser ):
                 return self.precpred(self._ctx, 2)
          
 
-    def term_sempred(self, localctx:TermContext, predIndex:int):
+    def term_int_sempred(self, localctx:Term_intContext, predIndex:int):
             if predIndex == 2:
                 return self.precpred(self._ctx, 3)
          
