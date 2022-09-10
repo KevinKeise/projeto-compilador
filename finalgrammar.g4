@@ -16,13 +16,13 @@ list_att: att (',' att)*;
 
 // Atribuiçao
 att : ID '=' (STRING | REAL | BOOL | INT);  // ex: var = 34
-att_e : ID '=' (expression | STRING | BOOL  );  // ex: var = 34+5
+att_e : ID '=' (expression | STRING | BOOL);  // ex: var = 34+5
 att_s : ID '+=' (REAL | INT);
 att_m : ID '*=' (REAL | INT);
 
 //expressoes aritmeticas
 
-expression : expr_int | expr_real;
+expression : expr_id | expr_int | expr_real;
 
 expr_int: expr_int '+' term_int #IntSoma
         | expr_int '-' term_int #IntSubtracao
@@ -58,6 +58,22 @@ factor_real: '(' expr_real ')' #RealParentesesArit
       | '-' factor_real #RealMenosUnarioAri
       ;
 
+expr_id: expr_id '+' term_id #IdSoma
+         | expr_id '-' term_id #IdSubtracao
+         | term_id  #IdExprTerm
+         ;
+
+term_id: term_id '*' factor_id #IdMulti
+         | term_id '/' factor_id #IdDiv
+         | factor_id #IdTermFactor
+         ;
+
+factor_id: '(' expr_id ')' #IdParentesesArit
+      | ID #IdIdAri
+      | call_func #IdCallFuncAri
+      | '-' factor_id #IdMenosUnarioAri
+      ;
+
 // expressoes de comparaçao
 
 teste_comp: expr_comp;
@@ -83,8 +99,6 @@ term_bool: term_bool '||' fact_comp #OuOp
          ;
 
 fact_comp: '(' expr_comp ')' #FactPar
-         | INT #FactInt
-         | REAL #FactReal
          | STRING #FactString
          | BOOL #FactBool
          | ID #FactId
@@ -105,12 +119,14 @@ call_func: ID '('list_callf_param*')'; // define como se chama uma funçao sem p
 
 list_callf_param: list_callf (',' list_callf)*;
 // define os tipos de parametro de uma funçao Ex: func(3+2) ou func(var) etc...
-list_callf: ID  #IdParametroFunc
-          | call_func #CallFuncParametroFunc
-          | expression #ExpressionParametroFunc
+list_callf: ID
+          | STRING
+          | BOOL
+          | call_func
+          | expression
           ;
 
-return_stm: 'return' (ID | BOOL | expression | call_func) ';'; // define o 'return' da funçao
+return_stm: 'return' (ID | BOOL | STRING | expression | call_func | teste_comp) ';'; // define o 'return' da funçao
 
 //print
 

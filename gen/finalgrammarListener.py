@@ -179,15 +179,6 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#IntRealAri.
-    def enterIntRealAri(self, ctx:finalgrammarParser.IntRealAriContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#IntRealAri.
-    def exitIntRealAri(self, ctx:finalgrammarParser.IntRealAriContext):
-        pass
-
-
     # Enter a parse tree produced by finalgrammarParser#IntCallFuncAri.
     def enterIntCallFuncAri(self, ctx:finalgrammarParser.IntCallFuncAriContext):
         pass
@@ -203,6 +194,195 @@ class finalgrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by finalgrammarParser#IntMenosUnarioAri.
     def exitIntMenosUnarioAri(self, ctx:finalgrammarParser.IntMenosUnarioAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealExprTerm.
+    def enterRealExprTerm(self, ctx:finalgrammarParser.RealExprTermContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealExprTerm.
+    def exitRealExprTerm(self, ctx:finalgrammarParser.RealExprTermContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealSubtracao.
+    def enterRealSubtracao(self, ctx:finalgrammarParser.RealSubtracaoContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealSubtracao.
+    def exitRealSubtracao(self, ctx:finalgrammarParser.RealSubtracaoContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealSoma.
+    def enterRealSoma(self, ctx:finalgrammarParser.RealSomaContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealSoma.
+    def exitRealSoma(self, ctx:finalgrammarParser.RealSomaContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealDiv.
+    def enterRealDiv(self, ctx:finalgrammarParser.RealDivContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealDiv.
+    def exitRealDiv(self, ctx:finalgrammarParser.RealDivContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealMulti.
+    def enterRealMulti(self, ctx:finalgrammarParser.RealMultiContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealMulti.
+    def exitRealMulti(self, ctx:finalgrammarParser.RealMultiContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealTermFactor.
+    def enterRealTermFactor(self, ctx:finalgrammarParser.RealTermFactorContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealTermFactor.
+    def exitRealTermFactor(self, ctx:finalgrammarParser.RealTermFactorContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealParentesesArit.
+    def enterRealParentesesArit(self, ctx:finalgrammarParser.RealParentesesAritContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealParentesesArit.
+    def exitRealParentesesArit(self, ctx:finalgrammarParser.RealParentesesAritContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealAri.
+    def enterRealAri(self, ctx:finalgrammarParser.RealAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealAri.
+    def exitRealAri(self, ctx:finalgrammarParser.RealAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealIdAri.
+    def enterRealIdAri(self, ctx:finalgrammarParser.RealIdAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealIdAri.
+    def exitRealIdAri(self, ctx:finalgrammarParser.RealIdAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealCallFuncAri.
+    def enterRealCallFuncAri(self, ctx:finalgrammarParser.RealCallFuncAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealCallFuncAri.
+    def exitRealCallFuncAri(self, ctx:finalgrammarParser.RealCallFuncAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#RealMenosUnarioAri.
+    def enterRealMenosUnarioAri(self, ctx:finalgrammarParser.RealMenosUnarioAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#RealMenosUnarioAri.
+    def exitRealMenosUnarioAri(self, ctx:finalgrammarParser.RealMenosUnarioAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdSoma.
+    def enterIdSoma(self, ctx:finalgrammarParser.IdSomaContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdSoma.
+    def exitIdSoma(self, ctx:finalgrammarParser.IdSomaContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdExprTerm.
+    def enterIdExprTerm(self, ctx:finalgrammarParser.IdExprTermContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdExprTerm.
+    def exitIdExprTerm(self, ctx:finalgrammarParser.IdExprTermContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdSubtracao.
+    def enterIdSubtracao(self, ctx:finalgrammarParser.IdSubtracaoContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdSubtracao.
+    def exitIdSubtracao(self, ctx:finalgrammarParser.IdSubtracaoContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdMulti.
+    def enterIdMulti(self, ctx:finalgrammarParser.IdMultiContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdMulti.
+    def exitIdMulti(self, ctx:finalgrammarParser.IdMultiContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdDiv.
+    def enterIdDiv(self, ctx:finalgrammarParser.IdDivContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdDiv.
+    def exitIdDiv(self, ctx:finalgrammarParser.IdDivContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdTermFactor.
+    def enterIdTermFactor(self, ctx:finalgrammarParser.IdTermFactorContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdTermFactor.
+    def exitIdTermFactor(self, ctx:finalgrammarParser.IdTermFactorContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdParentesesArit.
+    def enterIdParentesesArit(self, ctx:finalgrammarParser.IdParentesesAritContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdParentesesArit.
+    def exitIdParentesesArit(self, ctx:finalgrammarParser.IdParentesesAritContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdIdAri.
+    def enterIdIdAri(self, ctx:finalgrammarParser.IdIdAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdIdAri.
+    def exitIdIdAri(self, ctx:finalgrammarParser.IdIdAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdCallFuncAri.
+    def enterIdCallFuncAri(self, ctx:finalgrammarParser.IdCallFuncAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdCallFuncAri.
+    def exitIdCallFuncAri(self, ctx:finalgrammarParser.IdCallFuncAriContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdMenosUnarioAri.
+    def enterIdMenosUnarioAri(self, ctx:finalgrammarParser.IdMenosUnarioAriContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdMenosUnarioAri.
+    def exitIdMenosUnarioAri(self, ctx:finalgrammarParser.IdMenosUnarioAriContext):
         pass
 
 
@@ -332,24 +512,6 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#FactInt.
-    def enterFactInt(self, ctx:finalgrammarParser.FactIntContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactInt.
-    def exitFactInt(self, ctx:finalgrammarParser.FactIntContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactReal.
-    def enterFactReal(self, ctx:finalgrammarParser.FactRealContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactReal.
-    def exitFactReal(self, ctx:finalgrammarParser.FactRealContext):
-        pass
-
-
     # Enter a parse tree produced by finalgrammarParser#FactString.
     def enterFactString(self, ctx:finalgrammarParser.FactStringContext):
         pass
@@ -440,30 +602,12 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#IdParametroFunc.
-    def enterIdParametroFunc(self, ctx:finalgrammarParser.IdParametroFuncContext):
+    # Enter a parse tree produced by finalgrammarParser#list_callf.
+    def enterList_callf(self, ctx:finalgrammarParser.List_callfContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#IdParametroFunc.
-    def exitIdParametroFunc(self, ctx:finalgrammarParser.IdParametroFuncContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#CallFuncParametroFunc.
-    def enterCallFuncParametroFunc(self, ctx:finalgrammarParser.CallFuncParametroFuncContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#CallFuncParametroFunc.
-    def exitCallFuncParametroFunc(self, ctx:finalgrammarParser.CallFuncParametroFuncContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#ExpressionParametroFunc.
-    def enterExpressionParametroFunc(self, ctx:finalgrammarParser.ExpressionParametroFuncContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#ExpressionParametroFunc.
-    def exitExpressionParametroFunc(self, ctx:finalgrammarParser.ExpressionParametroFuncContext):
+    # Exit a parse tree produced by finalgrammarParser#list_callf.
+    def exitList_callf(self, ctx:finalgrammarParser.List_callfContext):
         pass
 
 
