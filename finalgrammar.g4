@@ -17,8 +17,8 @@ list_att: att (',' att)*;
 // Atribuiçao
 att : ID '=' (STRING | REAL | BOOL | INT);  // ex: var = 34
 att_e : ID '=' (expression | STRING | BOOL);  // ex: var = 34+5
-att_s : ID '+=' (REAL | INT);
-att_m : ID '*=' (REAL | INT);
+att_s : ID '+=' (REAL | INT | ID);
+att_m : ID '*=' (REAL | INT | ID);
 
 //expressoes aritmeticas
 
@@ -98,12 +98,12 @@ term_bool: term_bool '||' fact_comp #OuOp
          | fact_comp #FactComp
          ;
 
-fact_comp: '(' expr_comp ')' #FactPar
-         | STRING #FactString
-         | BOOL #FactBool
-         | ID #FactId
-         | expression #FactExpression
-         |  '!' fact_comp #FactNot
+fact_comp: '(' expr_comp ')'
+         | STRING
+         | BOOL
+         | ID
+         | expression
+         |  '!' fact_comp
          ;
 
 
@@ -119,10 +119,10 @@ call_func: ID '('list_callf_param*')'; // define como se chama uma funçao sem p
 
 list_callf_param: list_callf (',' list_callf)*;
 // define os tipos de parametro de uma funçao Ex: func(3+2) ou func(var) etc...
-list_callf: ID
+list_callf: call_func
           | STRING
           | BOOL
-          | call_func
+          | ID
           | expression
           ;
 

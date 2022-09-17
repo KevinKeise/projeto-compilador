@@ -19,6 +19,7 @@ class MyFinalGrammar(finalgrammarListener):
     aux_count = 0
     aux_count2 = 0
     is_dep = False
+    aux_func = ""
 
     def get_simbolo_variavel(self, id):
         for t in self.tabela_variavel:
@@ -106,13 +107,13 @@ class MyFinalGrammar(finalgrammarListener):
     def verifica_se_variavel_foi_declarada(self, id, escopo):
 
         for i in self.tabela_variavel:
-            if i["id"] == id and i["ESCOPO"] == escopo:
+            if i["ID"] == id and i["ESCOPO"] == escopo:
                 pass
 
     def verifica_se_global(self, id):
 
         for i in self.tabela_variavel:
-            if i["id"] == id and i["ESCOPO"] == "0":
+            if i["ID"] == id and i["ESCOPO"] == "0":
                 return True
 
         return False;
@@ -129,7 +130,7 @@ class MyFinalGrammar(finalgrammarListener):
                 p = i["PARAMETROS"]
                 for t in p:
                     if t["ID"] == id:
-                        return i["TIPO"]
+                        return t["TIPO"]
 
         return ""
 
@@ -195,6 +196,37 @@ class MyFinalGrammar(finalgrammarListener):
             raise Exception("Os valores devem ser do mesmo tipo.")
 
 
+    def enterAtt_e(self, ctx:finalgrammarParser.Att_eContext):
+
+        id = ctx.ID().getText()
+
+        type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
+        type_id_global = self.retorna_tipo_da_variavel(id, "0")
+
+        if type_id_local == "" and type_id_global == "":
+            raise Exception("A Variável " + id + "nao foi declarada.")
+
+        if ctx.BOOL():
+            if type_id_local == "bool" or type_id_global == "bool":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo bool.")
+        elif ctx.STRING():
+            if type_id_local == "String" or type_id_global == "String":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo String.")
+        elif ctx.expression():
+            if type_id_local != "":
+                self.tipo_expressao = type_id_local
+            else:
+                self.tipo_expressao = type_id_global
+
+
+
+
+
+
     def exitPrint_stm(self, ctx:finalgrammarParser.Print_stmContext):
         pass
 
@@ -214,6 +246,10 @@ class MyFinalGrammar(finalgrammarListener):
 
     def enterMain_function(self, ctx:finalgrammarParser.Main_functionContext):
         self.escopo = self.escopo + 1
+        self.insere_funcao_na_tabela("main", "void", str(self.escopo))
+
+    def exitMain_function(self, ctx:finalgrammarParser.Main_functionContext):
+        print(self.tabela_variavel)
 
 
     def enterListParam(self, ctx:finalgrammarParser.ListParamContext): #salva os parametros da funçao na ts
@@ -221,7 +257,6 @@ class MyFinalGrammar(finalgrammarListener):
 
         lista_tipos = ctx.TIPO()
         lista_ids = ctx.ID()
-
         for i in range(len(lista_tipos)):
             d = {"ID": lista_ids[i].getText(), "TIPO": lista_tipos[i].getText()}
             a.append(d)
@@ -346,6 +381,9 @@ class MyFinalGrammar(finalgrammarListener):
         else:
             raise Exception("A variável " + id + " não existe")
 
+    def enterIntCallFuncAri(self, ctx:finalgrammarParser.IntCallFuncAriContext):
+        self.tipo_call_func = "int"
+
     def enterRealIdAri(self, ctx:finalgrammarParser.RealIdAriContext):
 
         id = ctx.ID().getText()
@@ -366,12 +404,40 @@ class MyFinalGrammar(finalgrammarListener):
         else:
             raise Exception("A variável " + id + " não existe")
 
+    def enterRealCallFuncAri(self, ctx:finalgrammarParser.RealCallFuncAriContext):
+        self.tipo_call_func = "real"
+
+    def enterIdIdAri(self, ctx:finalgrammarParser.IdIdAriContext):
+
+        if self.tipo_expressao != "":
+            id = ctx.ID().getText()
+
+            type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
+            type_id_global = self.retorna_tipo_da_variavel(id, "0")
+
+            if type_id_local != '':
+                if type_id_local == self.tipo_expressao:
+                    pass
+                else:
+                    raise Exception("A variável " + id + " deve ser do tipo " + self.tipo_expressao)
+            elif type_id_global != '':
+                if type_id_global == self.tipo_expressao:
+                    pass
+                else:
+                    raise Exception("A variável " + id + " deve ser do tipo " + self.tipo_expressao)
+            else:
+                raise Exception("A variável " + id + " não existe")
+
+
+
     def enterCall_func(self, ctx:finalgrammarParser.Call_funcContext):
         id_func = ctx.ID().getText()
 
-
         if self.verifica_id_funcao(id_func):
-            self.id_call_func = id_func
+            if self.is_dep == True:
+                self.aux_func = id_func
+            else:
+                self.id_call_func = id_func
             num_param = len(ctx.list_callf_param())
             param = len(self.retorna_parametros_da_funcao(id_func))
             if num_param == 0 and param != 0:
@@ -383,14 +449,17 @@ class MyFinalGrammar(finalgrammarListener):
             if self.verifica_tipo_funcao(id_func,self.tipo_call_func):
                 pass
             else:
-                raise Exception("A funçao " + ctx.ID().getText() + " nao pode ser chamada nesse escopo.")
+                raise Exception("O retorno da funçao " + ctx.ID().getText() + " deve ser " + self.tipo_call_func +".")
 
     def exitCall_func(self, ctx: finalgrammarParser.Call_funcContext):
+
         self.tipo_call_func = ""
-        self.id_call_func = ""
+
         self.num_param = 0
         if self.is_dep == False:
             self.aux_count = 0
+            self.id_call_func = ""
+        self.aux_func = ""
         self.is_dep = False
         self.aux_count2 = 0
 
@@ -398,41 +467,47 @@ class MyFinalGrammar(finalgrammarListener):
        pass
 
     def enterList_callf_param(self, ctx:finalgrammarParser.List_callf_paramContext):
+        if self.is_dep == False:
+            param = self.retorna_parametros_da_funcao(self.id_call_func)
+        else:
+            param = self.retorna_parametros_da_funcao(self.aux_func)
 
-        param = self.retorna_parametros_da_funcao(self.id_call_func)
         num_fun = len(param)
         num_param = len(ctx.list_callf())
 
         if param != False:
-            print(num_param)
             if num_fun != num_param:
-                raise Exception("O número de parametros passados a chamada da funçao " + self.id_call_func + " nao é compativel com a definiçao.")
-
+                if self.is_dep == False:
+                    raise Exception("O número de parametros passados a chamada da funçao " + self.id_call_func + " nao é compativel com a definiçao.")
+                else:
+                    raise Exception(
+                        "O número de parametros passados a chamada da funçao " + self.aux_func + " nao é compativel com a definiçao.")
 
     def enterList_callf(self, ctx:finalgrammarParser.List_callfContext):
-
-        param = self.retorna_parametros_da_funcao(self.id_call_func)  # Busca os parametros passados na definiçao da funçao
-
         if self.is_dep == False:
+            param = self.retorna_parametros_da_funcao(self.id_call_func)
             tipo = param[self.aux_count]["TIPO"]
         else:
+            param = self.retorna_parametros_da_funcao(self.aux_func)
             tipo = param[self.aux_count2]["TIPO"]
+
 
         if ctx.ID():
 
             id = ctx.ID().getText()
-
             tipo_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
             tipo_global = self.retorna_tipo_da_variavel(id, "0")
 
             if tipo_local != "":
                 if tipo_local != tipo:
-                    raise Exception("O tipo da ")
+
+                    raise Exception("O tipo da variavel passada como parametro nao existe1")
             elif tipo_global != "":
                 if tipo_global != tipo:
-                    raise Exception("asdasdasda")
+
+                    raise Exception("O tipo da variavel passada como parametro nao existe2")
             else:
-                raise Exception("Erro")
+                raise Exception("A variável " + id + " nao existe.")
 
             if self.is_dep == False:
                 self.aux_count = self.aux_count + 1
@@ -440,29 +515,41 @@ class MyFinalGrammar(finalgrammarListener):
                 self.aux_count2 = self.aux_count2 + 1
 
         elif ctx.BOOL():
-            pass
+
+            if tipo != "bool":
+                raise Exception("O tipo da variavel passada como parametro nao existe3")
+
+            if self.is_dep == False:
+                self.aux_count = self.aux_count + 1
+            else:
+                self.aux_count2 = self.aux_count2 + 1
+
         elif ctx.STRING():
-            pass
+
+            if tipo != "String":
+                raise Exception("O tipo da variavel passada como parametro nao existe4")
+
+            if self.is_dep == False:
+                self.aux_count = self.aux_count + 1
+            else:
+                self.aux_count2 = self.aux_count2 + 1
+
         elif ctx.expression():
             self.tipo_expressao = tipo
-            self.aux_count = self.aux_count + 1
+
+            if self.is_dep == False:
+                self.aux_count = self.aux_count + 1
+            else:
+                self.aux_count2 = self.aux_count2 + 1
+
         elif ctx.call_func():
+
             if self.is_dep == True:
-                raise Exception("Erroukkkk")
+                raise Exception("Só é permitido chamar uma funçao como parametro dentro de outra apenas umas vez no nível.")
+
             self.tipo_call_func = tipo
+            self.aux_count = self.aux_count + 1
             self.is_dep = True
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

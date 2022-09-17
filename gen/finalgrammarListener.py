@@ -503,57 +503,12 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#FactPar.
-    def enterFactPar(self, ctx:finalgrammarParser.FactParContext):
+    # Enter a parse tree produced by finalgrammarParser#fact_comp.
+    def enterFact_comp(self, ctx:finalgrammarParser.Fact_compContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#FactPar.
-    def exitFactPar(self, ctx:finalgrammarParser.FactParContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactString.
-    def enterFactString(self, ctx:finalgrammarParser.FactStringContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactString.
-    def exitFactString(self, ctx:finalgrammarParser.FactStringContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactBool.
-    def enterFactBool(self, ctx:finalgrammarParser.FactBoolContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactBool.
-    def exitFactBool(self, ctx:finalgrammarParser.FactBoolContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactId.
-    def enterFactId(self, ctx:finalgrammarParser.FactIdContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactId.
-    def exitFactId(self, ctx:finalgrammarParser.FactIdContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactExpression.
-    def enterFactExpression(self, ctx:finalgrammarParser.FactExpressionContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactExpression.
-    def exitFactExpression(self, ctx:finalgrammarParser.FactExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by finalgrammarParser#FactNot.
-    def enterFactNot(self, ctx:finalgrammarParser.FactNotContext):
-        pass
-
-    # Exit a parse tree produced by finalgrammarParser#FactNot.
-    def exitFactNot(self, ctx:finalgrammarParser.FactNotContext):
+    # Exit a parse tree produced by finalgrammarParser#fact_comp.
+    def exitFact_comp(self, ctx:finalgrammarParser.Fact_compContext):
         pass
 
 
