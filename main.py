@@ -4,7 +4,7 @@ from gen.finalgrammarLexer import finalgrammarLexer
 from gen.finalgrammarParser import finalgrammarParser
 
 if __name__ == '__main__':
-    exp = 'real var111 = 2.4,var113=56.8;real va;def v(bool var,int b) int {int jk;int cb;return jk+cb;}def vic(bool a, int asd) bool {} def main(){int l;bool b;int m;print("asd");v(vic(b,3),l);m = 4;}'
+    exp = 'real var111 = 2.4,var113=56.8;real va;def v(bool var,int b) int {int jk;int cb;return jk+cb;}def vic(bool a, int asd) bool {} def main(){int l;int b;real m;m += b;print("asd");m = 4;}'
     data = InputStream(exp)
 
     lexer = finalgrammarLexer(data)

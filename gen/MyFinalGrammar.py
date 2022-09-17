@@ -222,6 +222,54 @@ class MyFinalGrammar(finalgrammarListener):
             else:
                 self.tipo_expressao = type_id_global
 
+    def enterAtt_s(self, ctx:finalgrammarParser.Att_sContext):
+        id_1 = ctx.ID()[0].getText()
+
+        type_id_local = self.retorna_tipo_da_variavel(id_1, str(self.escopo))
+        type_id_global = self.retorna_tipo_da_variavel(id_1, "0")
+
+        if type_id_local == "" and type_id_global == "":
+            raise Exception("A Variável " + id_1 + "nao foi declarada.")
+
+        if len(ctx.ID()) > 1:
+            id_2 = ctx.ID()[1].getText()
+
+            type_id_local_2 = self.retorna_tipo_da_variavel(id_2, str(self.escopo))
+            type_id_global_2 = self.retorna_tipo_da_variavel(id_2, "0")
+
+            if type_id_local != "":
+                ty = type_id_local
+            elif type_id_global != "":
+                ty = type_id_global
+
+            if type_id_local_2 == "" and type_id_global_2 == "":
+                raise Exception("A Variável " + id_2 + "nao foi declarada.")
+
+            if type_id_local_2 != '':
+                if type_id_local_2 == ty:
+                    pass
+                else:
+                    raise Exception("A variável " + id_2 + " deve ser do tipo " + ty)
+            elif type_id_global_2 != '':
+                if type_id_global_2 == ty:
+                    pass
+                else:
+                    raise Exception("A variável " + id_2 + " deve ser do tipo " + ty)
+            else:
+                raise Exception("A variável " + id_2 + " não existe")
+
+        elif ctx.REAL():
+            if type_id_local == "real" or type_id_global == "real":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo real.")
+        elif ctx.INT():
+            if type_id_local == "int" or type_id_global == "int":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo int.")
+        else:
+            raise Exception("Erro de tipo.")
 
 
 
@@ -403,6 +451,8 @@ class MyFinalGrammar(finalgrammarListener):
                 raise Exception("A variável " + id + " deve ser do tipo real")
         else:
             raise Exception("A variável " + id + " não existe")
+
+
 
     def enterRealCallFuncAri(self, ctx:finalgrammarParser.RealCallFuncAriContext):
         self.tipo_call_func = "real"
