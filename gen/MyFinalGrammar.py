@@ -351,6 +351,7 @@ class MyFinalGrammar(finalgrammarListener):
     def enterMain_function(self, ctx:finalgrammarParser.Main_functionContext):
         self.escopo = self.escopo + 1
         self.insere_funcao_na_tabela("main", "void", str(self.escopo))
+        self.endereco = 0
 
     def exitMain_function(self, ctx:finalgrammarParser.Main_functionContext):
         print(self.tabela_variavel)
@@ -448,6 +449,7 @@ class MyFinalGrammar(finalgrammarListener):
 
 
     def enterExpression(self, ctx:finalgrammarParser.ExpressionContext):
+
         if self.tipo_expressao != "":
             if ctx.expr_id():
                 pass
@@ -536,15 +538,9 @@ class MyFinalGrammar(finalgrammarListener):
         type_id_global = self.retorna_tipo_da_variavel(id, "0")
 
         if type_id_local != '':
-            if type_id_local == "bool":
-                pass
-            else:
-                raise Exception("A variável " + id + " deve ser do tipo bool")
+            pass
         elif type_id_global != '':
-            if type_id_global == self.tipo_expressao:
-                pass
-            else:
-                raise Exception("A variável " + id + " deve ser do tipo bool")
+            pass
         else:
             raise Exception("A variável " + id + " não existe")
 
