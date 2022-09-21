@@ -5,5 +5,8 @@ def main(){
 	real m;
 	m += b;
 	print("asd");
+	if (a>c){
+
+}
 	m = 4.0;
 }

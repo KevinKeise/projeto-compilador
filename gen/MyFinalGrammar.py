@@ -23,6 +23,7 @@ class MyFinalGrammar(finalgrammarListener):
     aux_count2 = 0
     is_dep = False
     aux_func = ""
+    endereco = 0
 
     def get_simbolo_variavel(self, id):
         for t in self.tabela_variavel:
@@ -56,8 +57,8 @@ class MyFinalGrammar(finalgrammarListener):
 
         return False
 
-    def insere_variavel_na_tabela(self, tipo, id, escopo):
-        self.tabela_variavel.append({"ID":id, "TIPO":tipo, "ESCOPO":escopo})
+    def insere_variavel_na_tabela(self, tipo, id, escopo, end):
+        self.tabela_variavel.append({"ID":id, "TIPO":tipo, "ESCOPO":escopo, "ENDERECO": end})
 
     def insere_funcao_na_tabela(self, id, tipo, escopo):
         self.tabela_funcao.append({"ID": id, "TIPO": tipo, "ESCOPO":escopo, "PARAMETROS":[]})
@@ -163,7 +164,8 @@ class MyFinalGrammar(finalgrammarListener):
                     raise Exception("O Identificador " + i.getText() + " ja foi declarado")
 
             for i in ctx.ID():
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo))
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.endereco += 1
 
     def enterAtt_dec_var(self, ctx:finalgrammarParser.Att_dec_varContext):
         tipo = ctx.TIPO().getText()
@@ -179,22 +181,26 @@ class MyFinalGrammar(finalgrammarListener):
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo))
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.endereco += 1
         elif tipo == "real" and n_real == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo))
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.endereco += 1
         elif tipo == "String" and n_string == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo))
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.endereco += 1
         elif tipo == "bool" and n_bool == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo))
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.endereco += 1
         else:
             raise Exception("Os valores devem ser do mesmo tipo.")
 
@@ -328,6 +334,7 @@ class MyFinalGrammar(finalgrammarListener):
         pass
 
     def enterFunction(self, ctx:finalgrammarParser.FunctionContext):
+        self.endereco = 0
         self.escopo = self.escopo + 1
 
         tipo_func = ctx.TIPO().getText()
@@ -346,7 +353,7 @@ class MyFinalGrammar(finalgrammarListener):
         self.insere_funcao_na_tabela("main", "void", str(self.escopo))
 
     def exitMain_function(self, ctx:finalgrammarParser.Main_functionContext):
-        pass
+        print(self.tabela_variavel)
 
 
     def enterListParam(self, ctx:finalgrammarParser.ListParamContext): #salva os parametros da funçao na ts
@@ -360,11 +367,6 @@ class MyFinalGrammar(finalgrammarListener):
 
         self.insere_parametros_da_funcao(a)
 
-    def enterCall_func(self, ctx:finalgrammarParser.Call_funcContext): #verifica se o id da chamada da funçao existe
-        id_func = ctx.ID().getText()
-        print("ndsdsdsd")
-        if not self.verifica_id_funcao(id_func):
-            raise Exception(id_func + " nao existe.")
 
     def enterInput_stm(self, ctx:finalgrammarParser.Input_stmContext):
         id_var = ctx.ID().getText()
@@ -527,7 +529,24 @@ class MyFinalGrammar(finalgrammarListener):
             else:
                 raise Exception("A variável " + id + " não existe")
 
+    def enterFact_comp(self, ctx: finalgrammarParser.Fact_compContext):
+        id = ctx.ID().getText()
 
+        type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
+        type_id_global = self.retorna_tipo_da_variavel(id, "0")
+
+        if type_id_local != '':
+            if type_id_local == "bool":
+                pass
+            else:
+                raise Exception("A variável " + id + " deve ser do tipo bool")
+        elif type_id_global != '':
+            if type_id_global == self.tipo_expressao:
+                pass
+            else:
+                raise Exception("A variável " + id + " deve ser do tipo bool")
+        else:
+            raise Exception("A variável " + id + " não existe")
 
     def enterCall_func(self, ctx:finalgrammarParser.Call_funcContext):
         id_func = ctx.ID().getText()
