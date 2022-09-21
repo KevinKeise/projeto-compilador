@@ -6,12 +6,15 @@ if __name__ is not None and "." in __name__:
 else:
     from finalgrammarParser import finalgrammarParser
 
+from .func import le_arquivo
 
 # This class defines a complete listener for a parse tree produced by finalgrammarParser.
 class MyFinalGrammar(finalgrammarListener):
 
+    data = le_arquivo("code.py")
+    data_lines = data.splitlines()
     escopo = 0
-    tabela_variavel = [{"ID": "var1", "TIPO": "int", "ESCOPO": "0"}]
+    tabela_variavel = []
     tabela_funcao = []
     tipo_expressao = ""
     tipo_call_func = ""
@@ -272,8 +275,54 @@ class MyFinalGrammar(finalgrammarListener):
             raise Exception("Erro de tipo.")
 
 
+    def enterAtt_m(self, ctx:finalgrammarParser.Att_mContext):
+        id_1 = ctx.ID()[0].getText()
 
+        type_id_local = self.retorna_tipo_da_variavel(id_1, str(self.escopo))
+        type_id_global = self.retorna_tipo_da_variavel(id_1, "0")
 
+        if type_id_local == "" and type_id_global == "":
+            raise Exception("A Variável " + id_1 + "nao foi declarada.")
+
+        if len(ctx.ID()) > 1:
+            id_2 = ctx.ID()[1].getText()
+
+            type_id_local_2 = self.retorna_tipo_da_variavel(id_2, str(self.escopo))
+            type_id_global_2 = self.retorna_tipo_da_variavel(id_2, "0")
+
+            if type_id_local != "":
+                ty = type_id_local
+            elif type_id_global != "":
+                ty = type_id_global
+
+            if type_id_local_2 == "" and type_id_global_2 == "":
+                raise Exception("A Variável " + id_2 + "nao foi declarada.")
+
+            if type_id_local_2 != '':
+                if type_id_local_2 == ty:
+                    pass
+                else:
+                    raise Exception("A variável " + id_2 + " deve ser do tipo " + ty)
+            elif type_id_global_2 != '':
+                if type_id_global_2 == ty:
+                    pass
+                else:
+                    raise Exception("A variável " + id_2 + " deve ser do tipo " + ty)
+            else:
+                raise Exception("A variável " + id_2 + " não existe")
+
+        elif ctx.REAL():
+            if type_id_local == "real" or type_id_global == "real":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo real.")
+        elif ctx.INT():
+            if type_id_local == "int" or type_id_global == "int":
+                pass
+            else:
+                raise Exception("A expressao " + ctx.getText() + " deve ser do tipo int.")
+        else:
+            raise Exception("Erro de tipo.")
 
     def exitPrint_stm(self, ctx:finalgrammarParser.Print_stmContext):
         pass
@@ -297,7 +346,7 @@ class MyFinalGrammar(finalgrammarListener):
         self.insere_funcao_na_tabela("main", "void", str(self.escopo))
 
     def exitMain_function(self, ctx:finalgrammarParser.Main_functionContext):
-        print(self.tabela_variavel)
+        pass
 
 
     def enterListParam(self, ctx:finalgrammarParser.ListParamContext): #salva os parametros da funçao na ts

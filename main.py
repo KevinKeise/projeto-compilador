@@ -3,8 +3,17 @@ from gen.MyFinalGrammar import MyFinalGrammar
 from gen.finalgrammarLexer import finalgrammarLexer
 from gen.finalgrammarParser import finalgrammarParser
 
+
+def le_arquivo(nome):
+    with open(nome) as file:
+        data = file.read()
+        file.close()
+        return data
+
+
 if __name__ == '__main__':
-    exp = 'real var111 = 2.4,var113=56.8;real va;def v(bool var,int b) int {int jk;int cb;return jk+cb;}def vic(bool a, int asd) bool {} def main(){int l;int b;real m;m += b;print("asd");m = 4;}'
+    d = le_arquivo("code.py")
+    exp = d
     data = InputStream(exp)
 
     lexer = finalgrammarLexer(data)
