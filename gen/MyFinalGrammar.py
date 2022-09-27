@@ -6,13 +6,14 @@ if __name__ is not None and "." in __name__:
 else:
     from finalgrammarParser import finalgrammarParser
 
-from .func import le_arquivo
+from .func import le_arquivo, escreve_arquivo
 
 # This class defines a complete listener for a parse tree produced by finalgrammarParser.
 class MyFinalGrammar(finalgrammarListener):
 
     data = le_arquivo("code.py")
     data_lines = data.splitlines()
+    text_file_out = ""
     escopo = 0
     tabela_variavel = []
     tabela_funcao = []
@@ -152,6 +153,16 @@ class MyFinalGrammar(finalgrammarListener):
     def aux_verifica(self, mem, tipo):
         pass
 
+    def conta_qtd_variaveis(self, escopo):
+
+        qtd = 0
+
+        for i in self.tabela_variavel:
+            if i["ESCOPO"] == escopo:
+                qtd += 1
+
+        return qtd
+
     #---------------------------------------------------------------------------------
 
     def exitSm_dec_var(self, ctx:finalgrammarParser.Sm_dec_varContext):
@@ -166,6 +177,8 @@ class MyFinalGrammar(finalgrammarListener):
             for i in ctx.ID():
                 self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
                 self.endereco += 1
+
+
 
     def enterAtt_dec_var(self, ctx:finalgrammarParser.Att_dec_varContext):
         tipo = ctx.TIPO().getText()
@@ -204,6 +217,14 @@ class MyFinalGrammar(finalgrammarListener):
         else:
             raise Exception("Os valores devem ser do mesmo tipo.")
 
+
+    def exitDecVar(self, ctx:finalgrammarParser.DecVarContext):
+        pass
+
+    def exitInitial_vars(self, ctx:finalgrammarParser.Initial_varsContext):
+        qtd = self.conta_qtd_variaveis(str(self.escopo))
+        if qtd > 0:
+            self.text_file_out += f"    .limit locals {qtd}\n"
 
     def enterAtt_e(self, ctx:finalgrammarParser.Att_eContext):
 
@@ -331,7 +352,11 @@ class MyFinalGrammar(finalgrammarListener):
             raise Exception("Erro de tipo.")
 
     def exitPrint_stm(self, ctx:finalgrammarParser.Print_stmContext):
-        pass
+        self.text_file_out += "     invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V\n"
+
+    def enterPrint_stm(self, ctx:finalgrammarParser.Print_stmContext):
+        self.text_file_out += "     getstatic java/lang/System/out Ljava/io/PrintStream;\n"
+
 
     def enterFunction(self, ctx:finalgrammarParser.FunctionContext):
         self.endereco = 0
@@ -349,12 +374,14 @@ class MyFinalGrammar(finalgrammarListener):
         pass
 
     def enterMain_function(self, ctx:finalgrammarParser.Main_functionContext):
+        self.text_file_out += ".method public static main([Ljava/lang/String;)V \n"
         self.escopo = self.escopo + 1
         self.insere_funcao_na_tabela("main", "void", str(self.escopo))
         self.endereco = 0
 
     def exitMain_function(self, ctx:finalgrammarParser.Main_functionContext):
-        print(self.tabela_variavel)
+        self.text_file_out += ".end method"
+        escreve_arquivo(self.text_file_out)
 
 
     def enterListParam(self, ctx:finalgrammarParser.ListParamContext): #salva os parametros da funçao na ts
@@ -543,6 +570,9 @@ class MyFinalGrammar(finalgrammarListener):
             pass
         else:
             raise Exception("A variável " + id + " não existe")
+
+    def enterFor_stm(self, ctx:finalgrammarParser.For_stmContext):
+        pass
 
     def enterCall_func(self, ctx:finalgrammarParser.Call_funcContext):
         id_func = ctx.ID().getText()

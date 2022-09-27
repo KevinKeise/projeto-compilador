@@ -17,6 +17,15 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by finalgrammarParser#initial_vars.
+    def enterInitial_vars(self, ctx:finalgrammarParser.Initial_varsContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#initial_vars.
+    def exitInitial_vars(self, ctx:finalgrammarParser.Initial_varsContext):
+        pass
+
+
     # Enter a parse tree produced by finalgrammarParser#decVar.
     def enterDecVar(self, ctx:finalgrammarParser.DecVarContext):
         pass

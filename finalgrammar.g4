@@ -1,8 +1,10 @@
 grammar finalgrammar;
 
-programa: decVar* function* main_function;
+programa: initial_vars function* main_function;
 
 // variaveis
+
+initial_vars: decVar*;
 
 decVar: sm_dec_var      // declara variaveis sem inicializa-las
       | att_dec_var  //declara variaveis inicializando-as
@@ -109,9 +111,9 @@ fact_comp: '(' expr_comp ')'
 
 // funçoes
 
-function : 'def' ID '(' listParam* ')' TIPO '{' decVar* blocks* '}'; // define uma funçao qualquer
+function : 'def' ID '(' listParam* ')' TIPO '{' initial_vars blocks* '}'; // define uma funçao qualquer
 
-main_function : 'def' 'main' '(' listParam* ')' '{' decVar* blocks+ '}'; // define a funçao principal
+main_function : 'def' 'main' '(' listParam* ')' '{' initial_vars blocks+ '}'; // define a funçao principal
 
 listParam: TIPO ID (',' TIPO ID)* ; // lista de parametros da funçao
 
