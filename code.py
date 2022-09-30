@@ -4,14 +4,7 @@ def main(){
 	real c;
 	int l = 2;
 	int b;
-	int m;
-	for m in range(m:m){
-		print("alo");
-	}
-	m += b;
-	print("asd");
-	if (m > c){
+	real m;
+	print(m);
 
-}
-	m = 4;
 }

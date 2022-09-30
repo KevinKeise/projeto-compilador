@@ -136,10 +136,10 @@ print_stm: 'print' '(' list_p+ ')' ';';
 
 list_p: list_sv (',' list_sv)*;
 
-list_sv: STRING
-       | ID
-       | expression
-       | call_func
+list_sv: STRING #PrintString
+       | ID #PrintId
+       | expression #PrintExpression
+       | call_func #PrintFunc
        ;
 //input
 

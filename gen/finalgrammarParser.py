@@ -3853,31 +3853,88 @@ class finalgrammarParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(finalgrammarParser.STRING, 0)
 
-        def ID(self):
-            return self.getToken(finalgrammarParser.ID, 0)
+        def getRuleIndex(self):
+            return finalgrammarParser.RULE_list_sv
 
-        def expression(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExpressionContext,0)
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
 
+
+
+    class PrintFuncContext(List_svContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.List_svContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def call_func(self):
             return self.getTypedRuleContext(finalgrammarParser.Call_funcContext,0)
 
 
-        def getRuleIndex(self):
-            return finalgrammarParser.RULE_list_sv
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterList_sv" ):
-                listener.enterList_sv(self)
+            if hasattr( listener, "enterPrintFunc" ):
+                listener.enterPrintFunc(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitList_sv" ):
-                listener.exitList_sv(self)
+            if hasattr( listener, "exitPrintFunc" ):
+                listener.exitPrintFunc(self)
 
+
+    class PrintStringContext(List_svContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.List_svContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def STRING(self):
+            return self.getToken(finalgrammarParser.STRING, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintString" ):
+                listener.enterPrintString(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintString" ):
+                listener.exitPrintString(self)
+
+
+    class PrintExpressionContext(List_svContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.List_svContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expression(self):
+            return self.getTypedRuleContext(finalgrammarParser.ExpressionContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintExpression" ):
+                listener.enterPrintExpression(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintExpression" ):
+                listener.exitPrintExpression(self)
+
+
+    class PrintIdContext(List_svContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.List_svContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(finalgrammarParser.ID, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintId" ):
+                listener.enterPrintId(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintId" ):
+                listener.exitPrintId(self)
 
 
 
@@ -3890,24 +3947,28 @@ class finalgrammarParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,41,self._ctx)
             if la_ == 1:
+                localctx = finalgrammarParser.PrintStringContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 453
                 self.match(finalgrammarParser.STRING)
                 pass
 
             elif la_ == 2:
+                localctx = finalgrammarParser.PrintIdContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 454
                 self.match(finalgrammarParser.ID)
                 pass
 
             elif la_ == 3:
+                localctx = finalgrammarParser.PrintExpressionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 455
                 self.expression()
                 pass
 
             elif la_ == 4:
+                localctx = finalgrammarParser.PrintFuncContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 456
                 self.call_func()

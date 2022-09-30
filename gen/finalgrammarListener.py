@@ -602,12 +602,39 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#list_sv.
-    def enterList_sv(self, ctx:finalgrammarParser.List_svContext):
+    # Enter a parse tree produced by finalgrammarParser#PrintString.
+    def enterPrintString(self, ctx:finalgrammarParser.PrintStringContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#list_sv.
-    def exitList_sv(self, ctx:finalgrammarParser.List_svContext):
+    # Exit a parse tree produced by finalgrammarParser#PrintString.
+    def exitPrintString(self, ctx:finalgrammarParser.PrintStringContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#PrintId.
+    def enterPrintId(self, ctx:finalgrammarParser.PrintIdContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#PrintId.
+    def exitPrintId(self, ctx:finalgrammarParser.PrintIdContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#PrintExpression.
+    def enterPrintExpression(self, ctx:finalgrammarParser.PrintExpressionContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#PrintExpression.
+    def exitPrintExpression(self, ctx:finalgrammarParser.PrintExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#PrintFunc.
+    def enterPrintFunc(self, ctx:finalgrammarParser.PrintFuncContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#PrintFunc.
+    def exitPrintFunc(self, ctx:finalgrammarParser.PrintFuncContext):
         pass
 
 
