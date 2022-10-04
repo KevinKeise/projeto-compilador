@@ -444,6 +444,7 @@ class MyFinalGrammar(finalgrammarListener):
         self.text_file_out += "getstatic java/lang/System/out Ljava/io/PrintStream;\n"
 
 
+
     def enterReturn_stm(self, ctx:finalgrammarParser.Return_stmContext):
 
         l = self.retorna_ultima_funcao_adicionada();
@@ -608,6 +609,18 @@ class MyFinalGrammar(finalgrammarListener):
                     pass
                 else:
                     raise Exception("A variável " + id + " deve ser do tipo " + self.tipo_expressao)
+            else:
+                raise Exception("A variável " + id + " não existe")
+        else:
+            id = ctx.ID().getText()
+
+            type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
+            type_id_global = self.retorna_tipo_da_variavel(id, "0")
+
+            if type_id_local != '':
+                self.tipo_expressao = type_id_local
+            elif type_id_global != '':
+                self.tipo_expressao = type_id_global
             else:
                 raise Exception("A variável " + id + " não existe")
 
