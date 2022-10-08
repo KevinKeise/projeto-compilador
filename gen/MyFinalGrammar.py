@@ -25,6 +25,9 @@ class MyFinalGrammar(finalgrammarListener):
     is_dep = False
     aux_func = ""
     endereco = 0
+    p_j_c = ""
+    cont_att = ""
+    end_var = ""
 
     def get_simbolo_variavel(self, id):
         for t in self.tabela_variavel:
@@ -58,8 +61,8 @@ class MyFinalGrammar(finalgrammarListener):
 
         return False
 
-    def insere_variavel_na_tabela(self, tipo, id, escopo, end):
-        self.tabela_variavel.append({"ID":id, "TIPO":tipo, "ESCOPO":escopo, "ENDERECO": end})
+    def insere_variavel_na_tabela(self, tipo, id, escopo, end, valor):
+        self.tabela_variavel.append({"ID":id, "TIPO":tipo, "ESCOPO":escopo, "ENDERECO": end, "VALOR":valor})
 
     def insere_funcao_na_tabela(self, id, tipo, escopo):
         self.tabela_funcao.append({"ID": id, "TIPO": tipo, "ESCOPO":escopo, "PARAMETROS":[]})
@@ -123,6 +126,14 @@ class MyFinalGrammar(finalgrammarListener):
 
         return False;
 
+    def retorna_tipo_funcao(self, id):
+
+        for t in self.tabela_funcao:
+            if t["ID"] == id:
+                return t["TIPO"]
+
+        return ""
+
 
     def retorna_tipo_da_variavel(self, id, escopo):
 
@@ -185,13 +196,15 @@ class MyFinalGrammar(finalgrammarListener):
                     raise Exception("O Identificador " + i.getText() + " ja foi declarado")
 
             for i in ctx.ID():
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco, None)
                 self.endereco += 1
 
 
 
     def enterAtt_dec_var(self, ctx:finalgrammarParser.Att_dec_varContext):
         tipo = ctx.TIPO().getText()
+
+        aux = 0
 
         n_var = len(ctx.ID())
         n_int = len(ctx.INT())
@@ -202,31 +215,48 @@ class MyFinalGrammar(finalgrammarListener):
         #trocar o segmento abaixo por um melhor
         if tipo == "int" and n_int == n_var:
             for i in ctx.ID():
+                print(ctx.INT()[aux].getText())
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco, ctx.INT()[aux].getText())
+                aux += 1
                 self.endereco += 1
+
         elif tipo == "real" and n_real == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco,ctx.REAL()[aux].getText())
+                aux += 1
                 self.endereco += 1
         elif tipo == "String" and n_string == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco, ctx.STRING()[aux].getText())
+                aux += 1
                 self.endereco += 1
         elif tipo == "bool" and n_bool == n_var:
             for i in ctx.ID():
                 if self.verifica_simbolo_variavel(i.getText(), str(self.escopo)):
                     raise "Variável () já declarada."
-                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco)
+                self.insere_variavel_na_tabela(tipo, i.getText(), str(self.escopo), self.endereco, ctx.BOOL()[aux].getText())
+                aux += 1
                 self.endereco += 1
         else:
             raise Exception("Os valores devem ser do mesmo tipo.")
 
+
+    def exitAtt_dec_var(self, ctx: finalgrammarParser.Att_dec_varContext):
+        if ctx.INT():
+            for i in ctx.INT():
+                pass
+        elif ctx.REAL():
+            pass
+        elif ctx.BOOL():
+            pass
+        elif ctx.STRING():
+            pass
 
     def exitDecVar(self, ctx:finalgrammarParser.DecVarContext):
         pass
@@ -236,8 +266,29 @@ class MyFinalGrammar(finalgrammarListener):
         if qtd > 0:
             self.text_file_out += f"    .limit locals {qtd}\n"
 
-    def enterAtt_e(self, ctx:finalgrammarParser.Att_eContext):
+        for i in self.tabela_variavel:
+            if i["VALOR"] != None and i["ESCOPO"] == str(self.escopo):
+                val = i["VALOR"]
+                end = i["ENDERECO"]
+                if i["TIPO"] == "int":
+                    self.text_file_out += f"\tldc {val}\n"
+                    self.text_file_out += f"\tistore {end}\n"
+                elif i["TIPO"] == "real":
+                    self.text_file_out += f"\tldc {val}\n"
+                    self.text_file_out += f"\tistore {end}\n"
+                elif i["TIPO"] == "bool":
+                    if val == "True":
+                        self.text_file_out += f"\tldc 1\n"
+                        self.text_file_out += f"\tistore {end}\n"
+                    else:
+                        self.text_file_out += f"\tldc 0\n"
+                        self.text_file_out += f"\tistore {end}\n"
+                elif i["TIPO"] == "String":
+                    pass
 
+
+
+    def enterAtt_e(self, ctx:finalgrammarParser.Att_eContext):
         id = ctx.ID().getText()
 
         type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
@@ -248,7 +299,21 @@ class MyFinalGrammar(finalgrammarListener):
 
         if ctx.BOOL():
             if type_id_local == "bool" or type_id_global == "bool":
-                pass
+                text = ctx.BOOL().getText()
+                if type_id_local == "bool":
+                    end = self.retorna_endereco_var(id, str(self.escopo))
+                    if text == "True":
+                        self.text_file_out += "\tldc 1\n"
+                    else:
+                        self.text_file_out += "\tldc 0\n"
+                    self.text_file_out += f"\tistore {end}\n"
+                else:
+                    end = self.retorna_endereco_var(id, "0")
+                    if text == "True":
+                        self.text_file_out += "\tldc 1\n"
+                    else:
+                        self.text_file_out += "\tldc 0\n"
+                    self.text_file_out += f"\tistore {end}\n"
             else:
                 raise Exception("A expressao " + ctx.getText() + " deve ser do tipo bool.")
         elif ctx.STRING():
@@ -259,8 +324,33 @@ class MyFinalGrammar(finalgrammarListener):
         elif ctx.expression():
             if type_id_local != "":
                 self.tipo_expressao = type_id_local
+                if type_id_local == "int":
+                    self.cont_att = "int"
+                else:
+                    self.cont_att = "real"
             else:
                 self.tipo_expressao = type_id_global
+                if type_id_global == "int":
+                    self.cont_att = "int"
+                else:
+                    self.cont_att = "real"
+
+    def exitAtt_e(self, ctx: finalgrammarParser.Att_eContext):
+        id = ctx.ID().getText()
+        end_local = self.retorna_endereco_var(id, str(self.escopo))
+        end_global = self.retorna_endereco_var(id, "0")
+        if end_local != None:
+            if self.cont_att == "int":
+                self.text_file_out += f"\tistore {end_local}\n"
+            elif self.cont_att == "real":
+                self.text_file_out += f"\tfstore {end_local}\n"
+        else:
+            if self.cont_att == "int":
+                self.text_file_out += f"\tistore {end_global}\n"
+            elif self.cont_att == "real":
+                self.text_file_out += f"\tfstore {end_global}\n"
+
+        self.cont_att = ""
 
     def enterAtt_s(self, ctx:finalgrammarParser.Att_sContext):
         id_1 = ctx.ID()[0].getText()
@@ -405,7 +495,6 @@ class MyFinalGrammar(finalgrammarListener):
 
         self.insere_parametros_da_funcao(a)
 
-
     def enterInput_stm(self, ctx:finalgrammarParser.Input_stmContext):
         id_var = ctx.ID().getText()
         if not self.verifica_simbolo_variavel(id_var, str(self.escopo)) and not self.verifica_se_global(id_var):
@@ -413,36 +502,53 @@ class MyFinalGrammar(finalgrammarListener):
 
     def enterPrintString(self, ctx:finalgrammarParser.PrintStringContext):
         self.text_file_out += "\tgetstatic java/lang/System/out Ljava/io/PrintStream;\n"
-        self.text_file_out += f"\tldc {ctx.STRING().getText()}\n"
+        self.text_file_out += "\tldc " + f"{ctx.STRING().getText()}"  + "\n"
         self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(Ljava/lang/String;)V\n"
 
     def enterPrintId(self, ctx:finalgrammarParser.PrintIdContext):
         id_list = ctx.ID().getText()
+
         if not self.verifica_simbolo_variavel(id_list, str(self.escopo)) and not self.verifica_se_global(id_list):
             raise Exception("A variavel " + id_list + "nao existe")
+
         local = self.retorna_endereco_var(id_list,str(self.escopo))
         global_var = self.retorna_endereco_var(id_list, "0")
+
         if local != None:
             tipo = self.retorna_tipo_da_variavel(id_list, str(self.escopo))
-            print(tipo)
             self.text_file_out += "\tgetstatic java/lang/System/out Ljava/io/PrintStream;\n"
-            self.text_file_out += f"\tiload {local}\n"
             if tipo == "int":
+                self.text_file_out += f"\tiload {local}\n"
                 self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(I)V\n"
             elif tipo == "real":
+                self.text_file_out += f"\tfload {local}\n"
                 self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(F)V\n"
+            elif tipo == "bool":
+                self.text_file_out += f"\tiload {local}\n"
+                self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(I)V\n"
+            elif tipo == "String":
+                self.text_file_out += f"Como faz pra carregar uma string de uma variavel?"
+                self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(Ljava/lang/String;)V\n"
+
         elif global_var != "":
             tipo = self.retorna_tipo_da_variavel(id_list, "0")
+
             self.text_file_out += "\tgetstatic java/lang/System/out Ljava/io/PrintStream;\n"
-            self.text_file_out += f"\tiload {global_var}\n"
             if tipo == "int":
                 self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(I)V\n"
             elif tipo == "real":
                 self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(F)V\n"
 
     def enterPrintExpression(self, ctx:finalgrammarParser.PrintExpressionContext):
-        self.text_file_out += "getstatic java/lang/System/out Ljava/io/PrintStream;\n"
+        self.text_file_out += "\tgetstatic java/lang/System/out Ljava/io/PrintStream;\n"
 
+    def exitPrintExpression(self, ctx:finalgrammarParser.PrintExpressionContext):
+        if self.p_j_c == "int":
+            self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(I)V\n"
+            self.p_j_c = ""
+        elif self.p_j_c == "real":
+            self.text_file_out += "\tinvokevirtual java/io/PrintStream/println(F)V\n"
+            self.p_j_c = ""
 
 
     def enterReturn_stm(self, ctx:finalgrammarParser.Return_stmContext):
@@ -499,12 +605,16 @@ class MyFinalGrammar(finalgrammarListener):
         elif l["TIPO"] == "String":
             if ctx.ID():
                 id = ctx.ID().getText()
+
                 if not self.verifica_simbolo_somente_variavel(id, str(self.escopo)) and not self.verifica_simbolo_somente_variavel(id, "0"):
                     raise Exception("Variavel " + id + " nao declarada")
+
                 local = self.retorna_tipo_da_variavel(id, str(self.escopo))
                 global_var = self.retorna_tipo_da_variavel(id, "0")
+
                 if local != "String" and global_var != "String":
                     raise Exception("Erro: o retorno da funcao deve ser String")
+
             elif ctx.call_func():
                 self.tipo_call_func = "String"
             elif ctx.STRING():
@@ -515,6 +625,12 @@ class MyFinalGrammar(finalgrammarListener):
 
     def enterExpression(self, ctx:finalgrammarParser.ExpressionContext):
 
+        if ctx.expr_int():
+            self.p_j_c = "int"
+            print(self.p_j_c,"asd")
+        elif ctx.expr_real():
+            self.p_j_c = "real"
+
         if self.tipo_expressao != "":
             if ctx.expr_id():
                 pass
@@ -524,31 +640,44 @@ class MyFinalGrammar(finalgrammarListener):
                 raise Exception("Era esperada uma expressao do tipo " + self.tipo_expressao)
 
 
+
     def exitExpression(self, ctx:finalgrammarParser.ExpressionContext):
         self.tipo_expressao = ""
 
     def exitIntSoma(self, ctx:finalgrammarParser.IntSomaContext):
-        self.text_file_out += "iadd\n"
+        self.text_file_out += "\tiadd\n"
+
+    def exitIntSubtracao(self, ctx:finalgrammarParser.IntSubtracaoContext):
+        self.text_file_out += "\tisub\n"
+
+    def exitIntMulti(self, ctx:finalgrammarParser.IntMultiContext):
+
+        self.text_file_out += "\timul\n"
+
+    def exitIntDiv(self, ctx:finalgrammarParser.IntDivContext):
+
+        self.text_file_out += "\tidiv\n"
 
     def enterIntIdAri(self, ctx:finalgrammarParser.IntIdAriContext):
 
         id = ctx.ID().getText()
-
 
         type_id_local = self.retorna_tipo_da_variavel(id, str(self.escopo))
         type_id_global = self.retorna_tipo_da_variavel(id, "0")
 
         if type_id_local != '':
             if type_id_local == 'int':
+                self.tipo_expressao = "int"
                 endereco_var = self.retorna_endereco_var(id, str(self.escopo))
-                self.text_file_out += f"iload {endereco_var}\n"
+                self.text_file_out += f"\tiload {endereco_var}\n"
                 pass
             else:
                 raise Exception("A variável " + id + " deve ser do tipo int")
         elif type_id_global != '':
             if type_id_global == 'int':
+                self.tipo_expressao = "int"
                 endereco_var = self.retorna_endereco_var(id, "0")
-                self.text_file_out += f"iload {endereco_var}\n"
+                self.text_file_out += f"\tiload {endereco_var}\n"
                 pass
             else:
                 raise Exception("A variável " + id + " deve ser do tipo int")
@@ -557,13 +686,29 @@ class MyFinalGrammar(finalgrammarListener):
 
     def enterIntInteiroAri(self, ctx:finalgrammarParser.IntInteiroAriContext):
         num = ctx.INT().getText()
-        self.text_file_out += f"ldc {str(num)}\n"
+        self.text_file_out += f"\tldc {str(num)}\n"
 
     def enterIntCallFuncAri(self, ctx:finalgrammarParser.IntCallFuncAriContext):
         self.tipo_call_func = "int"
 
     def enterIntMenosUnarioAri(self, ctx:finalgrammarParser.IntMenosUnarioAriContext):
-        self.text_file_out += "ineg\n"
+        self.text_file_out += "\tineg\n"
+
+    def enterRealAri(self, ctx:finalgrammarParser.RealAriContext):
+        num = ctx.REAL().getText()
+        self.text_file_out += f"\tldc {str(num)}\n"
+
+    def exitRealSoma(self, ctx:finalgrammarParser.RealSomaContext):
+        self.text_file_out += "\tfadd\n"
+
+    def exitRealSubtracao(self, ctx:finalgrammarParser.RealSubtracaoContext):
+        self.text_file_out += "\tfsub\n"
+
+    def exitRealMulti(self, ctx:finalgrammarParser.RealMultiContext):
+        self.text_file_out += "\tfmul\n"
+
+    def exitRealDiv(self, ctx:finalgrammarParser.RealDivContext):
+        self.text_file_out += "\tfdiv\n"
 
     def enterRealIdAri(self, ctx:finalgrammarParser.RealIdAriContext):
 
@@ -574,11 +719,15 @@ class MyFinalGrammar(finalgrammarListener):
 
         if type_id_local != '':
             if type_id_local == 'real':
+                endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                self.text_file_out += f"\tfload {endereco_var}\n"
                 pass
             else:
                 raise Exception("A variável " + id + " deve ser do tipo real")
         elif type_id_global != '':
             if type_id_global == 'real':
+                endereco_var = self.retorna_endereco_var(id, "0")
+                self.text_file_out += f"\tfload {endereco_var}\n"
                 pass
             else:
                 raise Exception("A variável " + id + " deve ser do tipo real")
@@ -591,6 +740,34 @@ class MyFinalGrammar(finalgrammarListener):
         self.tipo_call_func = "real"
 
 
+    def exitIdSoma(self, ctx:finalgrammarParser.IdSomaContext):
+        if self.tipo_expressao == "int":
+            self.text_file_out += "\tiadd\n"
+        elif self.tipo_expressao == "real":
+            self.text_file_out += "\tfadd\n"
+        print(self.tipo_expressao)
+
+    def exitIdSubtracao(self, ctx:finalgrammarParser.IdSubtracaoContext):
+        if self.tipo_expressao == "int":
+            self.text_file_out += "\tisub\n"
+        elif self.tipo_expressao == "real":
+            self.text_file_out += "\tfsub\n"
+        print(self.tipo_expressao)
+
+    def exitIdMulti(self, ctx:finalgrammarParser.IdMultiContext):
+        if self.tipo_expressao == "int":
+            self.text_file_out += "\timul\n"
+        elif self.tipo_expressao == "real":
+            self.text_file_out += "\tfmul\n"
+        print(self.tipo_expressao)
+
+    def exitIdDiv(self, ctx:finalgrammarParser.IdDivContext):
+        if self.tipo_expressao == "int":
+            self.text_file_out += "\tidiv\n"
+        elif self.tipo_expressao == "real":
+            self.text_file_out += "\tfdiv\n"
+        print(self.tipo_expressao)
+
     def enterIdIdAri(self, ctx:finalgrammarParser.IdIdAriContext):
 
         if self.tipo_expressao != "":
@@ -601,12 +778,26 @@ class MyFinalGrammar(finalgrammarListener):
 
             if type_id_local != '':
                 if type_id_local == self.tipo_expressao:
-                    pass
+                    if type_id_local == "int":
+                        self.p_j_c = "int"
+                        endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                        self.text_file_out += f"\tiload {endereco_var}\n"
+                    elif type_id_local == "real":
+                        self.p_j_c = "real"
+                        endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                        self.text_file_out += f"\tfload {endereco_var}\n"
                 else:
                     raise Exception("A variável " + id + " deve ser do tipo " + self.tipo_expressao)
             elif type_id_global != '':
                 if type_id_global == self.tipo_expressao:
-                    pass
+                    if type_id_global == "int":
+                        self.p_j_c = "int"
+                        endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                        self.text_file_out += f"\tiload {endereco_var}\n"
+                    elif type_id_global == "real":
+                        self.p_j_c = "real"
+                        endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                        self.text_file_out += f"\tfload {endereco_var}\n"
                 else:
                     raise Exception("A variável " + id + " deve ser do tipo " + self.tipo_expressao)
             else:
@@ -619,10 +810,28 @@ class MyFinalGrammar(finalgrammarListener):
 
             if type_id_local != '':
                 self.tipo_expressao = type_id_local
+                if type_id_local == "int":
+                    endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                    self.text_file_out += f"\tiload {endereco_var}\n"
+                elif type_id_local == "real":
+                    endereco_var = self.retorna_endereco_var(id, str(self.escopo))
+                    self.text_file_out += f"\tfload {endereco_var}\n"
             elif type_id_global != '':
                 self.tipo_expressao = type_id_global
+                if type_id_local == "int":
+                    endereco_var = self.retorna_endereco_var(id, "0")
+                    self.text_file_out += f"\tiload {endereco_var}\n"
+                elif type_id_local == "real":
+                    endereco_var = self.retorna_endereco_var(id, "0")
+                    self.text_file_out += f"\tfload {endereco_var}\n"
             else:
                 raise Exception("A variável " + id + " não existe")
+
+    def enterIdCallFuncAri(self, ctx:finalgrammarParser.IdCallFuncAriContext):
+        if self.tipo_expressao == "int":
+            self.tipo_call_func == "int"
+        elif self.tipo_expressao == "real":
+            self.tipo_expressao = "real"
 
     def enterFact_comp(self, ctx: finalgrammarParser.Fact_compContext):
         id = ctx.ID().getText()
@@ -638,7 +847,34 @@ class MyFinalGrammar(finalgrammarListener):
             raise Exception("A variável " + id + " não existe")
 
     def enterFor_stm(self, ctx:finalgrammarParser.For_stmContext):
-        pass
+        id_arr = ctx.ID()
+
+        typ_local = self.retorna_tipo_da_variavel(id_arr, str(self.escopo))
+        typ_global = self.retorna_tipo_da_variavel(id_arr, "0")
+
+        if typ_local != "":
+            if typ_local != "int":
+                raise Exception("As variaveis do laço for devem ser do tipo int.")
+        elif typ_global != "":
+            if typ_local != "int":
+                raise Exception("As variaveis do laço for devem ser do tipo int.")
+        else:
+            Exception("A variavel " + id_arr + " nao existe.")
+
+    def enterFor_stm_types(self, ctx:finalgrammarParser.For_stm_typesContext):
+        id_arr = ctx.ID()
+
+        typ_local = self.retorna_tipo_da_variavel(id_arr, str(self.escopo))
+        typ_global = self.retorna_tipo_da_variavel(id_arr, "0")
+
+        if typ_local != "":
+            if typ_local != "int":
+                raise Exception("As variáveis do laço for devem ser do tipo int.")
+        elif typ_global != "":
+            if typ_local != "int":
+                raise Exception("As variáveis do laço for devem ser do tipo int.")
+        else:
+            Exception("A variavel " + id_arr + " nao existe.")
 
     def enterCall_func(self, ctx:finalgrammarParser.Call_funcContext):
         id_func = ctx.ID().getText()
@@ -656,14 +892,20 @@ class MyFinalGrammar(finalgrammarListener):
             raise Exception("A funçao " + id_func + " nao existe.")
 
         if self.tipo_call_func != "":
-            if self.verifica_tipo_funcao(id_func ,self.tipo_call_func):
+            if self.verifica_tipo_funcao(id_func , self.tipo_call_func):
                 if self.tipo_call_func == "int":
                     self.text_file_out += f"invokestatic finnalgrammar.{str(id_func)}()I"
                 elif self.tipo_call_func == "real":
                     self.text_file_out += f"invokestatic finnalgrammar.{str(id_func)}()F"
-                pass
+                elif self.tipo_call_func == "String":
+                    self.text_file_out += f"invokestatic finnalgrammar.{str(id_func)}() retorna String"
+                elif self.tipo_call_func == "bool":
+                    self.text_file_out += f"invokestatic finnalgrammar.{str(id_func)}() retorna bool"
             else:
                 raise Exception("O retorno da funçao " + ctx.ID().getText() + " deve ser " + self.tipo_call_func +".")
+        else:
+            type_func = self.retorna_tipo_funcao(id_func)
+            self.tipo_expressao = type_func
 
     def exitCall_func(self, ctx: finalgrammarParser.Call_funcContext):
 
@@ -740,7 +982,7 @@ class MyFinalGrammar(finalgrammarListener):
         elif ctx.STRING():
 
             if tipo != "String":
-                raise Exception("O tipo da variavel passada como parametro nao existe4")
+                raise Exception("O tipo da variavel passada como parametro nao existe")
 
             if self.is_dep == False:
                 self.aux_count = self.aux_count + 1

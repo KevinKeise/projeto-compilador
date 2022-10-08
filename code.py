@@ -1,10 +1,9 @@
-int p;
+def alo() int {
 
+
+}
 def main(){
-	real c;
-	int l = 2;
-	int b;
-	real m;
-	print(m);
+	bool a = False, asd = True;
+	int c = 1234;
 
 }

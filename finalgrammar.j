@@ -1,10 +1,12 @@
 .class public finalgrammar
 .super java/lang/Object
 
-    .limit locals 1
 .method public static main([Ljava/lang/String;)V 
-    .limit locals 4
-	getstatic java/lang/System/out Ljava/io/PrintStream;
-	iload 3
-	invokevirtual java/io/PrintStream/println(F)V
+    .limit locals 3
+	ldc 0
+	istore 0
+	ldc 1
+	istore 1
+	ldc 1234
+	istore 2
 .end method

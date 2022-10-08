@@ -113,7 +113,7 @@ fact_comp: '(' expr_comp ')'
 
 function : 'def' ID '(' listParam* ')' TIPO '{' initial_vars blocks* '}'; // define uma funçao qualquer
 
-main_function : 'def' 'main' '(' listParam* ')' '{' initial_vars blocks+ '}'; // define a funçao principal
+main_function : 'def' 'main' '(' listParam* ')' '{' initial_vars blocks* '}'; // define a funçao principal
 
 listParam: TIPO ID (',' TIPO ID)* ; // lista de parametros da funçao
 
@@ -137,8 +137,8 @@ print_stm: 'print' '(' list_p+ ')' ';';
 list_p: list_sv (',' list_sv)*;
 
 list_sv: STRING #PrintString
-       | ID #PrintId
        | expression #PrintExpression
+       | ID #PrintId
        | call_func #PrintFunc
        ;
 //input
@@ -151,7 +151,9 @@ if_stm: 'if' '(' teste_comp  ')' '{' blocks* '}' ('else' '{' blocks+ '}')?;
 
 //for
 
-for_stm: 'for' ID 'in' 'range' '(' (INT | ID) ':' (INT | ID) (':' (INT | ID))? ')' '{' blocks+ '}';
+for_stm: 'for' ID 'in' 'range' '(' for_stm_types ':' for_stm_types (':' for_stm_types)? ')' '{' blocks+ '}';
+
+for_stm_types: (INT | ID);
 
 //do-while
 
