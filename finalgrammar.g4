@@ -100,12 +100,12 @@ term_bool: term_bool '||' fact_comp #OuOp
          | fact_comp #FactComp
          ;
 
-fact_comp: '(' expr_comp ')'
-         | STRING
-         | BOOL
-         | ID
-         | expression
-         |  '!' fact_comp
+fact_comp: '(' expr_comp ')' #Paren
+         | STRING #StrFact
+         | BOOL #BoolFact
+         | ID   #IdcompFact
+         | expression #ExpcompFact
+         |  '!' fact_comp #FactFactFact
          ;
 
 

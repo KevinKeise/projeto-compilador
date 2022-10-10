@@ -512,12 +512,57 @@ class finalgrammarListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by finalgrammarParser#fact_comp.
-    def enterFact_comp(self, ctx:finalgrammarParser.Fact_compContext):
+    # Enter a parse tree produced by finalgrammarParser#Paren.
+    def enterParen(self, ctx:finalgrammarParser.ParenContext):
         pass
 
-    # Exit a parse tree produced by finalgrammarParser#fact_comp.
-    def exitFact_comp(self, ctx:finalgrammarParser.Fact_compContext):
+    # Exit a parse tree produced by finalgrammarParser#Paren.
+    def exitParen(self, ctx:finalgrammarParser.ParenContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#StrFact.
+    def enterStrFact(self, ctx:finalgrammarParser.StrFactContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#StrFact.
+    def exitStrFact(self, ctx:finalgrammarParser.StrFactContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#BoolFact.
+    def enterBoolFact(self, ctx:finalgrammarParser.BoolFactContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#BoolFact.
+    def exitBoolFact(self, ctx:finalgrammarParser.BoolFactContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#IdcompFact.
+    def enterIdcompFact(self, ctx:finalgrammarParser.IdcompFactContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#IdcompFact.
+    def exitIdcompFact(self, ctx:finalgrammarParser.IdcompFactContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#ExpcompFact.
+    def enterExpcompFact(self, ctx:finalgrammarParser.ExpcompFactContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#ExpcompFact.
+    def exitExpcompFact(self, ctx:finalgrammarParser.ExpcompFactContext):
+        pass
+
+
+    # Enter a parse tree produced by finalgrammarParser#FactFactFact.
+    def enterFactFactFact(self, ctx:finalgrammarParser.FactFactFactContext):
+        pass
+
+    # Exit a parse tree produced by finalgrammarParser#FactFactFact.
+    def exitFactFactFact(self, ctx:finalgrammarParser.FactFactFactContext):
         pass
 
 

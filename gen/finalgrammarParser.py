@@ -3075,38 +3075,125 @@ class finalgrammarParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def expr_comp(self):
-            return self.getTypedRuleContext(finalgrammarParser.Expr_compContext,0)
 
+        def getRuleIndex(self):
+            return finalgrammarParser.RULE_fact_comp
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class StrFactContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def STRING(self):
             return self.getToken(finalgrammarParser.STRING, 0)
 
-        def BOOL(self):
-            return self.getToken(finalgrammarParser.BOOL, 0)
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStrFact" ):
+                listener.enterStrFact(self)
 
-        def ID(self):
-            return self.getToken(finalgrammarParser.ID, 0)
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStrFact" ):
+                listener.exitStrFact(self)
 
-        def expression(self):
-            return self.getTypedRuleContext(finalgrammarParser.ExpressionContext,0)
 
+    class FactFactFactContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def fact_comp(self):
             return self.getTypedRuleContext(finalgrammarParser.Fact_compContext,0)
 
 
-        def getRuleIndex(self):
-            return finalgrammarParser.RULE_fact_comp
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFact_comp" ):
-                listener.enterFact_comp(self)
+            if hasattr( listener, "enterFactFactFact" ):
+                listener.enterFactFactFact(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFact_comp" ):
-                listener.exitFact_comp(self)
+            if hasattr( listener, "exitFactFactFact" ):
+                listener.exitFactFactFact(self)
 
+
+    class IdcompFactContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(finalgrammarParser.ID, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIdcompFact" ):
+                listener.enterIdcompFact(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIdcompFact" ):
+                listener.exitIdcompFact(self)
+
+
+    class BoolFactContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def BOOL(self):
+            return self.getToken(finalgrammarParser.BOOL, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBoolFact" ):
+                listener.enterBoolFact(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBoolFact" ):
+                listener.exitBoolFact(self)
+
+
+    class ExpcompFactContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expression(self):
+            return self.getTypedRuleContext(finalgrammarParser.ExpressionContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpcompFact" ):
+                listener.enterExpcompFact(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpcompFact" ):
+                listener.exitExpcompFact(self)
+
+
+    class ParenContext(Fact_compContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a finalgrammarParser.Fact_compContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr_comp(self):
+            return self.getTypedRuleContext(finalgrammarParser.Expr_compContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterParen" ):
+                listener.enterParen(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitParen" ):
+                listener.exitParen(self)
 
 
 
@@ -3119,6 +3206,7 @@ class finalgrammarParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,29,self._ctx)
             if la_ == 1:
+                localctx = finalgrammarParser.ParenContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 339
                 self.match(finalgrammarParser.T__9)
@@ -3129,30 +3217,35 @@ class finalgrammarParser ( Parser ):
                 pass
 
             elif la_ == 2:
+                localctx = finalgrammarParser.StrFactContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 343
                 self.match(finalgrammarParser.STRING)
                 pass
 
             elif la_ == 3:
+                localctx = finalgrammarParser.BoolFactContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 344
                 self.match(finalgrammarParser.BOOL)
                 pass
 
             elif la_ == 4:
+                localctx = finalgrammarParser.IdcompFactContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 345
                 self.match(finalgrammarParser.ID)
                 pass
 
             elif la_ == 5:
+                localctx = finalgrammarParser.ExpcompFactContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
                 self.state = 346
                 self.expression()
                 pass
 
             elif la_ == 6:
+                localctx = finalgrammarParser.FactFactFactContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
                 self.state = 347
                 self.match(finalgrammarParser.T__19)
